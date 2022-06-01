@@ -1,0 +1,13 @@
+name: ZMediumToMarkdown
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "15 */6 * * *"
+jobs:
+  ZMediumToMarkdown:
+    runs-on: ubuntu-latest
+    steps:
+    - name: ZMediumToMarkdown Automatic Bot
+      uses: ZhgChgLi/ZMediumToMarkdown@main
+      with:
+        command: '-u jackycsie' # e.g. -p https://medium.com/zrealm-ios-dev/converting-medium-posts-to-markdown-ddd88a84e177
