@@ -2,7 +2,7 @@ name: ZMediumToMarkdown
 on:
   workflow_dispatch:
   schedule:
-    - cron: "15 */6 * * *"
+    - cron: "* * 1 * *"
 jobs:
   ZMediumToMarkdown:
     runs-on: ubuntu-latest
