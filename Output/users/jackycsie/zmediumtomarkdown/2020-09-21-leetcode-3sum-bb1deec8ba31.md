@@ -1,20 +1,24 @@
 ---
 title: LeetCode 3Sum
 author: 黃馨平
-date: 2020-09-21T13:48:01.879Z
+date: 2020-09-21T13:48:01.879+0000
+last_modified_at: 2020-09-21T13:48:01.879+0000
 categories: Jackycsie
 tags: [leetcode,python]
+description: 
+image:
+  path: assets/bb1deec8ba31/1*nAtTppdL6UVXvacB42VuuQ.jpeg
 ---
 
-### [LeetCode] 3Sum
+### \[LeetCode\] 3Sum
 
 
 ![](assets/bb1deec8ba31/1*nAtTppdL6UVXvacB42VuuQ.jpeg)
 
 
-Given an array `nums` of _n_ integers, are there elements _a_ , _b_ , _c_ in `nums` such that _a_ + _b_ + _c_ = 0? Find all unique triplets in the array which gives the sum of zero.
+Given an array `nums` of _n_ integers, are there elements _a_ , _b_ , _c_ in `nums` such that _a_ \+ _b_ \+ _c_ = 0? Find all unique triplets in the array which gives the sum of zero\.
 
-Notice that the solution set must not contain duplicate triplets.
+Notice that the solution set must not contain duplicate triplets\.
 
 **Example 1:**
 ```
@@ -35,9 +39,9 @@ Output: []
 ```
 ### 解題想法：
 
-這題本來想寫自己的想法下去，但發現這位大大真的寫得太好了，根本無懈可擊，讓我直接引用她的寫法吧，再次感謝 Fion carry，但她是用 C#，會 C# 的也可以學一下大大的寫法，她的文章有圖文並茂喔，值得大家去看。
+這題本來想寫自己的想法下去，但發現這位大大真的寫得太好了，根本無懈可擊，讓我直接引用她的寫法吧，再次感謝 Fion carry，但她是用 C\#，會 C\# 的也可以學一下大大的寫法，她的文章有圖文並茂喔，值得大家去看。
 
-[[Day 7] 演算法刷題 LeetCode 15. 3Sum (Medium)](https://ithelp.ithome.com.tw/articles/10219594)
+[\[Day 7\] 演算法刷題 LeetCode 15\. 3Sum \(Medium\)](https://ithelp.ithome.com.tw/articles/10219594)
 1. 將 array 從小到大升冪排序
 2. 將須要找出的3個數的 index 分別表示為 `first` , `second` , `third`
 3. 用 for 迴圈計算，並將 `first` 做為 nums 的 `起始點`
@@ -50,15 +54,15 @@ Output: []
 - 若大於 0，則代表正數太大，需要將 third 移至上一個較小的正數 `(third--)`
 
 
-7. 另外判斷 first 是否已經重複，若重複則跳過此次迴圈，因為答案也會是一樣的
-- 如 {-1, -1, 0, 1, 2}
+7\. 另外判斷 first 是否已經重複，若重複則跳過此次迴圈，因為答案也會是一樣的
+- 如 \{ \-1, \-1, 0, 1, 2\}
 
 
-8. 另外判斷 second 是否已經重複，若重複則 second++，並跳過此次迴圈，因為答案也會是一樣的
-- 如 {-4, 2, 2, 2, 3}
+8\. 另外判斷 second 是否已經重複，若重複則 second\+ \+，並跳過此次迴圈，因為答案也會是一樣的
+- 如 \{ \-4, 2, 2, 2, 3\}
 
 
-**7. 與 8. 是讓效能再更好的其中之一條件，不用重複查找已經查找過的數字。** 若沒有寫也是會過的哦！
+**7\. 與 8\. 是讓效能再更好的其中之一條件，不用重複查找已經查找過的數字。** 若沒有寫也是會過的哦！
 
 **簡單好懂版：**
 ```python
@@ -97,8 +101,8 @@ class Solution(object):
         answer_list = [list(t) for t in answer_list]
         return answer_list
 ```
-- Runtime: 1648 ms, faster than 13.79%
-- Memory Usage: 17.8 MB, less than 7.12%
+- Runtime: 1648 ms, faster than 13\.79%
+- Memory Usage: 17\.8 MB, less than 7\.12%
 
 
 概念相同，程式縮減版：
@@ -135,19 +139,15 @@ class Solution(object):
             i+=1
         return first
 ```
-- Runtime: 780 ms, faster than 51.52%
-- Memory Usage: 16 MB, less than 63.27%
+- Runtime: 780 ms, faster than 51\.52%
+- Memory Usage: 16 MB, less than 63\.27%
 
 
 參考文獻：
-- [[Day 7] 演算法刷題 LeetCode 15. 3Sum (Medium)](https://ithelp.ithome.com.tw/articles/10219594)
-- [[Day 4] 從LeetCode學演算法 — 0015. 3Sum (Medium)](https://ithelp.ithome.com.tw/articles/10213264)
-- [15. 3Sum 解题报告（Python）](https://blog.csdn.net/fuxuemingzhu/article/details/83115850)
+- [\[Day 7\] 演算法刷題 LeetCode 15\. 3Sum \(Medium\)](https://ithelp.ithome.com.tw/articles/10219594)
+- [\[Day 4\] 從LeetCode學演算法 — 0015\. 3Sum \(Medium\)](https://ithelp.ithome.com.tw/articles/10213264)
+- [15\. 3Sum 解题报告（Python）](https://blog.csdn.net/fuxuemingzhu/article/details/83115850)
 
 
 
-+-----------------------------------------------------------------------------------+
-
-| **[View original post on Medium](https://medium.com/jacky-life/leetcode-3sum-bb1deec8ba31) - Converted by [ZhgChgLi](https://zhgchg.li)/[ZMediumToMarkdown](https://github.com/ZhgChgLi/ZMediumToMarkdown)** |
-
-+-----------------------------------------------------------------------------------+
+_Converted [Medium Post](https://medium.com/jacky-life/leetcode-3sum-bb1deec8ba31) by [ZMediumToMarkdown](https://github.com/ZhgChgLi/ZMediumToMarkdown)._

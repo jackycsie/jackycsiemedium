@@ -1,9 +1,13 @@
 ---
 title: 透過 K8S 建立 NFS 服務
 author: 黃馨平
-date: 2020-09-25T01:48:22.725Z
+date: 2020-09-25T01:48:22.725+0000
+last_modified_at: 2020-09-25T02:08:51.059+0000
 categories: Jackycsie
 tags: [kubernetes,ceph,nfs-server,k8s]
+description: 本文將介紹，透過 kubernetes 建立 NFS 服務， Storage class 會使用 CEPH RBD 做儲存空間。
+image:
+  path: assets/6bbe4aeaf2cf/1*GTI-TOdX0ftU5F_olCVlYg.jpeg
 ---
 
 ### 透過 K8S 建立 NFS 服務
@@ -17,12 +21,12 @@ tags: [kubernetes,ceph,nfs-server,k8s]
 下圖是建立在 kubernetes 建立一個 NFS 服務時，所使用的流程圖。
 
 
-![參考資料](assets/6bbe4aeaf2cf/1*YpFr0NvVYW8t1ZecQRPx1A.jpeg "參考資料")
+![[參考資料](https://godleon.github.io/blog/Kubernetes/k8s-Config-StorageClass-with-NFS/)](assets/6bbe4aeaf2cf/1*YpFr0NvVYW8t1ZecQRPx1A.jpeg)
 
 [參考資料](https://godleon.github.io/blog/Kubernetes/k8s-Config-StorageClass-with-NFS/)
 ### 行前注意
-1. 建立好 kubernetes 集群( [建立集群文章](https://medium.com/jacky-life/%E4%BD%BF%E7%94%A8-kubeadm-%E5%AE%89%E8%A3%9D-k8s-abe1631aa600?source=collection_home---2------3-----------------------) )。
-2. 在 kubernetes 已擁有 CEPH 服務( [使用 Rook 建立 CEPH 儲存架構](https://medium.com/jacky-life/%E5%9C%A8-k8s-%E4%BD%BF%E7%94%A8-rook-%E5%AE%89%E8%A3%9D-ceph-1999f52a6fb9?source=collection_home---4------0-----------------------) )。
+1. 建立好 kubernetes 集群\( [建立集群文章](https://medium.com/jacky-life/%E4%BD%BF%E7%94%A8-kubeadm-%E5%AE%89%E8%A3%9D-k8s-abe1631aa600?source=collection_home---2------3-----------------------) \)。
+2. 在 kubernetes 已擁有 CEPH 服務\( [使用 Rook 建立 CEPH 儲存架構](https://medium.com/jacky-life/%E5%9C%A8-k8s-%E4%BD%BF%E7%94%A8-rook-%E5%AE%89%E8%A3%9D-ceph-1999f52a6fb9?source=collection_home---4------0-----------------------) \)。
 
 ### Outline
 - Step 1: 建立 StorageClass
@@ -217,16 +221,12 @@ $ mkdir -p /mnt/nfs/var/nfsshare
 $ mount -t nfs -o port=30377 master_node_IP:/ /mnt/nfs/var/nfsshare/
 ```
 ### 參考資料
-- [https://rook.io/docs/rook/v1.4/ceph-block.html](https://rook.io/docs/rook/v1.4/ceph-block.html)
-- [https://rook.io/docs/rook/v1.4/nfs.html](https://rook.io/docs/rook/v1.4/nfs.html)
-- [https://ithelp.ithome.com.tw/articles/10195944](https://ithelp.ithome.com.tw/articles/10195944)
-- [https://www.opencli.com/linux/debian-ubuntu-install-nfs-server](https://www.opencli.com/linux/debian-ubuntu-install-nfs-server)
-- [https://godleon.github.io/blog/Kubernetes/k8s-Config-StorageClass-with-NFS/](https://godleon.github.io/blog/Kubernetes/k8s-Config-StorageClass-with-NFS/)
+- [https://rook\.io/docs/rook/v1\.4/ceph\-block\.html](https://rook.io/docs/rook/v1.4/ceph-block.html)
+- [https://rook\.io/docs/rook/v1\.4/nfs\.html](https://rook.io/docs/rook/v1.4/nfs.html)
+- [https://ithelp\.ithome\.com\.tw/articles/10195944](https://ithelp.ithome.com.tw/articles/10195944)
+- [https://www\.opencli\.com/linux/debian\-ubuntu\-install\-nfs\-server](https://www.opencli.com/linux/debian-ubuntu-install-nfs-server)
+- [https://godleon\.github\.io/blog/Kubernetes/k8s\-Config\-StorageClass\-with\-NFS/](https://godleon.github.io/blog/Kubernetes/k8s-Config-StorageClass-with-NFS/)
 
 
 
-+-----------------------------------------------------------------------------------+
-
-| **[View original post on Medium](https://medium.com/jacky-life/%E9%80%8F%E9%81%8E-k8s-%E5%BB%BA%E7%AB%8B-nfs-%E6%9C%8D%E5%8B%99-6bbe4aeaf2cf) - Converted by [ZhgChgLi](https://zhgchg.li)/[ZMediumToMarkdown](https://github.com/ZhgChgLi/ZMediumToMarkdown)** |
-
-+-----------------------------------------------------------------------------------+
+_Converted [Medium Post](https://medium.com/jacky-life/%E9%80%8F%E9%81%8E-k8s-%E5%BB%BA%E7%AB%8B-nfs-%E6%9C%8D%E5%8B%99-6bbe4aeaf2cf) by [ZMediumToMarkdown](https://github.com/ZhgChgLi/ZMediumToMarkdown)._

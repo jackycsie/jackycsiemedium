@@ -1,9 +1,13 @@
 ---
 title: Deploy Ceph cache tier & erasure code
 author: 黃馨平
-date: 2020-07-10T07:31:51.613Z
+date: 2020-07-10T07:31:51.613+0000
+last_modified_at: 2020-08-05T08:50:04.592+0000
 categories: Jackycsie
 tags: [ceph,storage]
+description: 本篇文章主要紀錄的是如何應用 cache tier 與 erasure code 在 Cephfs 當中。
+image:
+  path: assets/9132e0ee7018/1*e7-XWTx6MvNk_3K1SONq_Q.jpeg
 ---
 
 ### Deploy Ceph cache tier & erasure code
@@ -15,14 +19,14 @@ tags: [ceph,storage]
 本篇文章主要紀錄的是如何應用 cache tier 與 erasure code 在 Cephfs 當中。
 
 本篇文章將會分 4 個部分撰寫：
-1. 建立 cache pool，撰寫 crush map rule 將 SSD 與 HDD 分開。
-2. 將 cephfs pool 建立 ，並使用 erasure code 與 HDD rule.
-3. 將 cache tier 與 cephfs pool 合併。
-4. 刪除 cache tier 與 cephfs 。
-### Step 1.
+1\. 建立 cache pool，撰寫 crush map rule 將 SSD 與 HDD 分開。
+2\. 將 cephfs pool 建立 ，並使用 erasure code 與 HDD rule\.
+3\. 將 cache tier 與 cephfs pool 合併。
+4\. 刪除 cache tier 與 cephfs 。
+### Step 1\.
 
 撰寫 crush map 將 SSD 與 HDD 分開
-- Check SDD 與 HDD 的 OSD.ID 編號
+- Check SDD 與 HDD 的 OSD\.ID 編號
 
 ```
 ceph osd tree | grep hdd
@@ -34,7 +38,7 @@ ceph osd tree | grep ssd
 ceph osd getcrushmap -o crushmapdump
 crushtool -d crushmapdump -o crushmapdump-decompiled
 ```
-- vim crushmapdump-decompiled 開始撰寫 rule。
+- vim crushmapdump\-decompiled 開始撰寫 rule。
 
 
 第一步區分 SSD block 跟 HDD block
@@ -124,25 +128,25 @@ rule sata-pool {
 }
 ```
 
-Crush map 都寫完以後 encode 然後 set 到 system 中.
+Crush map 都寫完以後 encode 然後 set 到 system 中\.
 ```
 crushtool -c crushmapdump-decompiled -o crushmapdump-compiled
 ceph osd setcrushmap -i crushmapdump-compiled
 ```
 
-第三步建立 cache-pool
+第三步建立 cache\-pool
 ```
 # create cache-pool
 ceph osd pool create cache-pool 32 32
 ```
-### Step 2.
+### Step 2\.
 
-將 cephfs pool 建立 ，並使用 erasure code 與 HDD rule.
+將 cephfs pool 建立 ，並使用 erasure code 與 HDD rule\.
 ```
 # 建立 cold storage 的 pool，若不需要 erasure 可以刪除，但在 crush map 也需要更改。
 ceph osd pool create cephfs_data 1024 1024 erasure
 ```
-### Step 3.
+### Step 3\.
 
 將 cache tier 與 cephfs pool 合併。
 ```
@@ -157,9 +161,9 @@ ceph osd tier cache-mode cache-pool writeback
 # cephfs 還是需要 metadata 的 pool(雖然用不到)
 ceph osd pool create cephfs_metadata 1024 1024
 ```
-### 完成 !!
+### 完成 \! \!
 
-有興趣的可以玩一下，當中也有很多 cache-tier 調優的方法。
+有興趣的可以玩一下，當中也有很多 cache\-tier 調優的方法。
 ```
 ceph osd pool set cache-pool hit_set_type bloom
 ceph osd pool set cache-pool hit_set_count 1
@@ -177,9 +181,9 @@ ceph osd pool set cache-pool cache_target_full_ratio .8
 ```
 watch -n1 ceph df 
 ```
-### Step 4.
+### Step 4\.
 
-刪除 cache-tier 與 cephfs。
+刪除 cache\-tier 與 cephfs。
 
 在做這個步驟時必須十分警慎，不然處理起來會複雜很多，自己實測按照下面的步驟可以減少很多冤枉路。
 ```
@@ -192,7 +196,7 @@ rados -p cache-pool cache-flush-evict-all
 ceph osd tier cache-mode cache-pool readproxy
 ceph osd tier cache-mode cache-pool none
 ```
-- 刪除 cephfs ，因為個人實測無法直接在 tier 刪除 cephfs_data pool 必須先移除 cephfs 才能解除 cache-tier 的相依性。
+- 刪除 cephfs ，因為個人實測無法直接在 tier 刪除 cephfs\_data pool 必須先移除 cephfs 才能解除 cache\-tier 的相依性。
 
 ```
 # 關閉 mds
@@ -200,13 +204,13 @@ systemctl stop ceph-mds@ceph-007
 # 關閉 cephfs
 ceph fs fail cephfs
 ```
-- 移除 cache tier 的 cold-storage 以及 cache tier
+- 移除 cache tier 的 cold\-storage 以及 cache tier
 
 ```
 ceph osd tier remove-overlay cephfs_data
 ceph osd tier remove cephfs_data cache-pool
 ```
-### 結束了 !!
+### 結束了 \! \!
 
 現在大家都回復自由之身了， cold storge pool 的內容都還保存，沒有問題。
 
@@ -224,8 +228,4 @@ ceph osd tier remove cephfs_data cache-pool
 
 
 
-+-----------------------------------------------------------------------------------+
-
-| **[View original post on Medium](https://medium.com/jacky-life/deploy-ceph-cache-tier-erasure-code-9132e0ee7018) - Converted by [ZhgChgLi](https://zhgchg.li)/[ZMediumToMarkdown](https://github.com/ZhgChgLi/ZMediumToMarkdown)** |
-
-+-----------------------------------------------------------------------------------+
+_Converted [Medium Post](https://medium.com/jacky-life/deploy-ceph-cache-tier-erasure-code-9132e0ee7018) by [ZMediumToMarkdown](https://github.com/ZhgChgLi/ZMediumToMarkdown)._

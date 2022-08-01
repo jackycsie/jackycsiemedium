@@ -1,20 +1,24 @@
 ---
 title: LeetCode Longest Common Prefix
 author: 黃馨平
-date: 2020-09-16T15:23:05.504Z
+date: 2020-09-16T15:23:05.504+0000
+last_modified_at: 2020-09-16T15:23:05.504+0000
 categories: Jackycsie
 tags: [leetcode]
+description: Write a function to find the longest common prefix string amongst an array of strings.
+image:
+  path: assets/bef9cc68d498/1*IJc6nGMVqOhYEpfGK7EA-g.jpeg
 ---
 
-### [LeetCode] Longest Common Prefix
+### \[LeetCode\] Longest Common Prefix
 
 
 ![](assets/bef9cc68d498/1*IJc6nGMVqOhYEpfGK7EA-g.jpeg)
 
 
-Write a function to find the longest common prefix string amongst an array of strings.
+Write a function to find the longest common prefix string amongst an array of strings\.
 
-If there is no common prefix, return an empty string `""` .
+If there is no common prefix, return an empty string `""` \.
 
 **Example 1:**
 ```
@@ -31,12 +35,12 @@ Explanation: There is no common prefix among the input strings.
 
 **Note:**
 
-All given inputs are in lowercase letters `a-z` .
+All given inputs are in lowercase letters `a-z` \.
 ### 解題思考：
 
 這題有一些有趣的小問題，感覺在面白板題時一定會問到，他並沒有要求兩個想法，第一個就是如果是在字串中的有相同的連續字串能否抓出，第二個是如果字串很長，有相同數目的字串該如何解決，上述是面試時，感覺百板題面試官一定會問的題。
 
-那我們這裡主要解決最基礎的問題，首先我們拿第一個字串的第一個字比對，第 2,3 個字串的第一個字，如果相同就以此類推，如果不同就直接跳出，時間複雜度最好就是 O (1)，最差就是第一個字串的 O(n)。
+那我們這裡主要解決最基礎的問題，首先我們拿第一個字串的第一個字比對，第 2,3 個字串的第一個字，如果相同就以此類推，如果不同就直接跳出，時間複雜度最好就是 O \(1\)，最差就是第一個字串的 O\(n\)。
 ```python
 class Solution(object):
     def longestCommonPrefix(self, strs):
@@ -55,9 +59,9 @@ class Solution(object):
         return all_combine
 ```
 
-Runtime: 24 ms, faster than 63.98%.
+Runtime: 24 ms, faster than 63\.98%\.
 
-Memory Usage: 12.8 MB, less than 58.38%.
+Memory Usage: 12\.8 MB, less than 58\.38%\.
 
 有趣的回答，使用 min, max 做 list sort ，再抓 string，非常好理解，但都要先做 sort 會比較消耗時間，程式不好掌握。
 ```python
@@ -73,7 +77,7 @@ class Solution(object):
                 return s1[:i]
         return s1      
 ```
-- [https://ithelp.ithome.com.tw/articles/10213258](https://ithelp.ithome.com.tw/articles/10213258)
+- [https://ithelp\.ithome\.com\.tw/articles/10213258](https://ithelp.ithome.com.tw/articles/10213258)
 
 
 **結論：**
@@ -84,8 +88,4 @@ class Solution(object):
 
 
 
-+-----------------------------------------------------------------------------------+
-
-| **[View original post on Medium](https://medium.com/jacky-life/leetcode-longest-common-prefix-bef9cc68d498) - Converted by [ZhgChgLi](https://zhgchg.li)/[ZMediumToMarkdown](https://github.com/ZhgChgLi/ZMediumToMarkdown)** |
-
-+-----------------------------------------------------------------------------------+
+_Converted [Medium Post](https://medium.com/jacky-life/leetcode-longest-common-prefix-bef9cc68d498) by [ZMediumToMarkdown](https://github.com/ZhgChgLi/ZMediumToMarkdown)._

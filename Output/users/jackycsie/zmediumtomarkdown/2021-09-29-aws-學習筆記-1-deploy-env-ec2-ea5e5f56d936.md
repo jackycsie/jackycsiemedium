@@ -1,12 +1,16 @@
 ---
 title: AWS — 學習筆記(1) Deploy ENV/EC2
 author: 黃馨平
-date: 2021-09-29T15:48:02.203Z
+date: 2021-09-29T15:48:02.203+0000
+last_modified_at: 2021-09-30T02:11:21.592+0000
 categories: Jackycsie
 tags: [aws,ec2]
+description: Deploy VPC, IGW, SG, EC2
+image:
+  path: assets/ea5e5f56d936/1*_lwVJJzZuoiTSpqsERZUZQ.png
 ---
 
-### AWS — 學習筆記(1) Deploy ENV/EC2
+### AWS — 學習筆記\(1\) Deploy ENV/EC2
 
 
 ![](assets/ea5e5f56d936/1*_lwVJJzZuoiTSpqsERZUZQ.png)
@@ -29,38 +33,38 @@ Hi, All
 
 前提概要：
 
-VPC: 172.16.0.0/16
+VPC: 172\.16\.0\.0/16
 
-Public Subnet, jackysideproject-web-1a: 172.16.10.0/24
+Public Subnet, jackysideproject\-web\-1a: 172\.16\.10\.0/24
 
-Private Subnet, jackysideproject-db-1a: 172.16.20.0/24
+Private Subnet, jackysideproject\-db\-1a: 172\.16\.20\.0/24
 
-EC2 Private IP: 172.16.10.10
+EC2 Private IP: 172\.16\.10\.10
 
-Create Security Group: jackysideproject-web-sg
+Create Security Group: jackysideproject\-web\-sg
 
 Security Group Allow Port: 22
 
-Create IGW routing table: jackysideproject-web-rtb
+Create IGW routing table: jackysideproject\-web\-rtb
 
 標籤:
 
-VPC: jackysideproject-vpc
+VPC: jackysideproject\-vpc
 
-Public Subnet: jackysideproject-web-1a
+Public Subnet: jackysideproject\-web\-1a
 
-Private Subnet: jackysideproject-db-1a
+Private Subnet: jackysideproject\-db\-1a
 
-IGW: jackysideproject-igw
+IGW: jackysideproject\-igw
 
-Routing Table: jackysideproject-web-rtb
+Routing Table: jackysideproject\-web\-rtb
 
-Security Group: jackysideproject-web-sg
+Security Group: jackysideproject\-web\-sg
 ### 建立自己的 VPC
 
 參考文章: [什麼是 AWS VPC](https://docs.aws.amazon.com/zh_tw/vpc/latest/userguide/what-is-amazon-vpc.html)
 
-第一步，點開我們的 VPC，Create VPC.
+第一步，點開我們的 VPC，Create VPC\.
 
 
 ![](assets/ea5e5f56d936/1*EluWd9RFyUC6aKlfAVYlmw.png)
@@ -79,27 +83,27 @@ Security Group: jackysideproject-web-sg
 
 ### Create Public/Private subnet
 
-建立完 VPC 後開始切割網段，在這個部分我們將會分為 172.16.10.0/24, 172.16.20.0/24 兩個網段。
+建立完 VPC 後開始切割網段，在這個部分我們將會分為 172\.16\.10\.0/24, 172\.16\.20\.0/24 兩個網段。
 
 
 ![](assets/ea5e5f56d936/1*cePTWoaO94O1emqP-4jBIQ.png)
 
 
-Public Subnet, jackysideproject-web-1a: 172.16.10.0/24
+Public Subnet, jackysideproject\-web\-1a: 172\.16\.10\.0/24
 
 Regin: 1a
 
-Tag: jackysideproject-web-1a
+Tag: jackysideproject\-web\-1a
 
 
 ![](assets/ea5e5f56d936/1*7sGcYISi2Hcsw7cXDALJsQ.png)
 
 
-Private Subnet, jackysideproject-db-1a: 172.16.20.0/24
+Private Subnet, jackysideproject\-db\-1a: 172\.16\.20\.0/24
 
 Regin: 1a
 
-Tag: jackysideproject-db-1a
+Tag: jackysideproject\-db\-1a
 
 
 ![](assets/ea5e5f56d936/1*_u2e4BeVfwd3tLPKpBbskw.png)
@@ -114,7 +118,7 @@ Tag: jackysideproject-db-1a
 
 參考文章: [什麼是 IGW](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html)
 
-設定完兩個 subnet 以後此時 subnet 還沒有對外連網的功能，我們將 jackysideproject-web-1a 設定外網的功能。
+設定完兩個 subnet 以後此時 subnet 還沒有對外連網的功能，我們將 jackysideproject\-web\-1a 設定外網的功能。
 
 
 ![](assets/ea5e5f56d936/1*iOhDXLvdkuvfRowoVwoWaw.png)
@@ -148,7 +152,7 @@ Tag: jackysideproject-db-1a
 ![](assets/ea5e5f56d936/1*8DcKHn3yUjVepB1TT5MxOw.png)
 
 
-建立 jackysideproject-web-rtb，這個 routing table 依賴於我們所建立的 jackysideproject-vpc。
+建立 jackysideproject\-web\-rtb，這個 routing table 依賴於我們所建立的 jackysideproject\-vpc。
 
 
 ![](assets/ea5e5f56d936/1*edH-AjotQzESeuN1PXofLg.png)
@@ -160,25 +164,25 @@ Tag: jackysideproject-db-1a
 ![](assets/ea5e5f56d936/1*07VcaGtyHXBUmor1AAQHOA.png)
 
 
-設定 0.0.0.0/0， Target 我們自己設定的 IGW，此時所有的流量都會導入進來了。
+設定 0\.0\.0\.0/0， Target 我們自己設定的 IGW，此時所有的流量都會導入進來了。
 
 
 ![](assets/ea5e5f56d936/1*LZMHPPQ_6Cyt73Xr-Q5dUQ.png)
 
 
-但是我們還沒設定導入到哪一個 subnet 當中，所以我們選擇 routing table，並且將 routing table 導入到 web-1a 的 subnet 當中。
+但是我們還沒設定導入到哪一個 subnet 當中，所以我們選擇 routing table，並且將 routing table 導入到 web\-1a 的 subnet 當中。
 
 
 ![](assets/ea5e5f56d936/1*Hm2d1aPpVKtIoowfMzNXow.png)
 
 
-將 routing table 導入到 web-1a 的 subnet 當中。
+將 routing table 導入到 web\-1a 的 subnet 當中。
 
 
 ![](assets/ea5e5f56d936/1*zzIvGGmWy-IYBGgtsa4Pbg.png)
 
 
-接著我們去 subnets 的頁面看，就可以看到 web-1a 的 routing table 中多了一個對外的 0.0.0.0/0 的 content，此時我們就可以知道所有非 172.16.0.0/16 的流量都會被導入到 igw 做轉送。
+接著我們去 subnets 的頁面看，就可以看到 web\-1a 的 routing table 中多了一個對外的 0\.0\.0\.0/0 的 content，此時我們就可以知道所有非 172\.16\.0\.0/16 的流量都會被導入到 igw 做轉送。
 
 
 ![](assets/ea5e5f56d936/1*O31aBRDHgAIRiRG6CkXNJA.png)
@@ -189,13 +193,13 @@ Tag: jackysideproject-db-1a
 
 做完上述的步驟以後，我們可以思考，在一個沒有安全機制的狀況下，所有 IP, Port 都可以連進到一個公開的 server 中，是否不太合理，因此本節的目標就是將我們的網路多設一層防護網，我們將只允許 SSH port 22, 可以流進我們的 EC2 當中，當然之後若是你想要再多開 80, 443, 8888 都可以。
 
-點選 Security Group, Create security group.
+點選 Security Group, Create security group\.
 
 
 ![](assets/ea5e5f56d936/1*MUAMVd3HT6ANrJAzDI6AtA.png)
 
 
-建立 jackysidepojrect-web-sg，Inbound rules 設定 22 port， source 這裡設定 0.0.0.0/0，但其實這是不好的，比較佳的方式是輸入你自己的 IP，增加安全控管程度。
+建立 jackysidepojrect\-web\-sg，Inbound rules 設定 22 port， source 這裡設定 0\.0\.0\.0/0，但其實這是不好的，比較佳的方式是輸入你自己的 IP，增加安全控管程度。
 
 另外小 tips，aws 的 inbound 策略是，進得來的流量都出得去，大家可以去看參考文章有詳細講解喔。
 
@@ -224,7 +228,7 @@ Tag: jackysideproject-db-1a
 ![](assets/ea5e5f56d936/1*deE_y7zyhZQ5uNTDhWanjQ.png)
 
 
-選擇我們前面建立好的 VPC, 以及我們對外的 web-1a subnet，另外 enable Public IP 這樣我們才可以從外網設備連的到 AWS 的網路
+選擇我們前面建立好的 VPC, 以及我們對外的 web\-1a subnet，另外 enable Public IP 這樣我們才可以從外網設備連的到 AWS 的網路
 
 
 ![](assets/ea5e5f56d936/1*xf6YcWsdK-j8mtvZfJ4MvQ.png)
@@ -285,8 +289,4 @@ ssh -i aws_ssh_key.pem ec2-user@Your_EC2_Public_IP
 
 
 
-+-----------------------------------------------------------------------------------+
-
-| **[View original post on Medium](https://medium.com/jacky-life/aws-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-1-deploy-env-ec2-ea5e5f56d936) - Converted by [ZhgChgLi](https://zhgchg.li)/[ZMediumToMarkdown](https://github.com/ZhgChgLi/ZMediumToMarkdown)** |
-
-+-----------------------------------------------------------------------------------+
+_Converted [Medium Post](https://medium.com/jacky-life/aws-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-1-deploy-env-ec2-ea5e5f56d936) by [ZMediumToMarkdown](https://github.com/ZhgChgLi/ZMediumToMarkdown)._

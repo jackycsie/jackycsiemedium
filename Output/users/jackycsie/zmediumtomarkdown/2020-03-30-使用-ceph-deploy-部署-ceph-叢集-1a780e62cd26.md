@@ -1,18 +1,22 @@
 ---
 title: 使用 ceph-deploy 部署 ceph 叢集
 author: 黃馨平
-date: 2020-03-30T07:04:46.314Z
+date: 2020-03-30T07:04:46.314+0000
+last_modified_at: 2020-08-13T06:11:50.517+0000
 categories: Jackycsie
 tags: [ceph,hdfs,hadoop]
+description: 本篇會介紹如何透過 ceph-deploy 工具安裝一個 ceph 叢集，安裝的環境是 ubuntu 18.04 LTS 。
+image:
+  path: assets/1a780e62cd26/1*-PEi3lcbllFB-JV5pTqLgg.jpeg
 ---
 
-### 使用 ceph-deploy 部署 ceph 叢集
+### 使用 ceph\-deploy 部署 ceph 叢集
 
 
 ![](assets/1a780e62cd26/1*-PEi3lcbllFB-JV5pTqLgg.jpeg)
 
 
-本篇會介紹如何透過 ceph-deploy 工具安裝一個 ceph 叢集，使用的環境是 ubuntu 18.04 LTS ，一個最簡單的 Ceph 儲存叢集至少要一台 `Monitor` 與三台 `OSD` 。而 MDS 是當需要使用到 CephFS 的時候才需要部署。。
+本篇會介紹如何透過 ceph\-deploy 工具安裝一個 ceph 叢集，使用的環境是 ubuntu 18\.04 LTS ，一個最簡單的 Ceph 儲存叢集至少要一台 `Monitor` 與三台 `OSD` 。而 MDS 是當需要使用到 CephFS 的時候才需要部署。。
 ### 環境準備
 
 本次安裝會擁有 5 台 node，叢集拓樸圖如下所示：
@@ -27,7 +31,7 @@ tags: [ceph,hdfs,hadoop]
 $ apt install -y ntp
 $ apt install -y python-pip
 ```
-- Deploy Node 先設定好可以直接不須密碼連進其他台 node(server).
+- Deploy Node 先設定好可以直接不須密碼連進其他台 node\(server\) \.
 
 ```
 $ ssh-copy-id root@ceph-node[1-4]
@@ -42,7 +46,7 @@ $ hostnamectl set-hostname {你想要的 hostname}
 ![](assets/1a780e62cd26/1*t0DttSn81fM8ctFp6wCQvw.jpeg)
 
 ### 透過 ceph deploy 做叢集
-- 我們透過 deploy node 安裝，在這裡我們透過 pip install ceph-deploy。
+- 我們透過 deploy node 安裝，在這裡我們透過 pip install ceph\-deploy。
 
 ```
 root@ceph-node0:~# apt install ceph-deploy
@@ -53,7 +57,7 @@ root@ceph-node0:~# mkdir /etc/ceph ; cd /etc/ceph
 
 ![](assets/1a780e62cd26/1*yGSn3ZNUpvl5YJPFagkUsQ.jpeg)
 
-- 使用 ceph-deploy 在所有節點中安裝 ceph。
+- 使用 ceph\-deploy 在所有節點中安裝 ceph。
 
 ```
 root@ceph-node0:~# ceph-deploy install ceph-node0 ceph-node1 ceph-node2 ceph-node3 ceph-node4
@@ -75,7 +79,7 @@ root@ceph-node0:~# ceph-deploy mon create-initial
 - 若是您在 作上述 command 時，發生錯誤，可以去下列網址 debug，極推。
 
 
-[https://blog.whsir.com/post-4604.html](https://blog.whsir.com/post-4604.html)
+[https://blog\.whsir\.com/post\-4604\.html](https://blog.whsir.com/post-4604.html)
 - 安裝完後，在 /etc/ceph ，應該會看到多了一些檔案。
 
 
@@ -93,7 +97,7 @@ root@ceph-node0:~# ceph -s
 
 - 可以看到目前不管是 pools, PG, OSD，都是空的 mon 目前也只有 1 個 ，下面將會介紹如何將這些加入進去。
 
-#### 建立 OSD (object storage daemon)
+#### 建立 OSD \(object storage daemon\)
 - 首先在建立 OSD 前，確認哪些是我們想要變成 OSD 的 硬碟。
 
 ```
@@ -115,7 +119,7 @@ root@ceph-node0:~# ceph-deploy disk zap ceph-node0 /dev/vdb
 
 ![](assets/1a780e62cd26/1*fj-CpOw6yDIWAl8MOGbl0g.jpeg)
 
-#### 設定 PG (placement groups)
+#### 設定 PG \(placement groups\)
 - PG 與 OSD 的有密不可分的關係，設定 PG的多寡會直接影響到 CEPH 使用時的效能。
 
 
@@ -145,8 +149,8 @@ root@ceph-node0:~# ceph osd pool create rbd 256
 root@ceph-node0:~# ceph osd pool set rbd pgp_num 256
 root@ceph-node0:~# ceph osd lspools
 ```
-#### 建立 ceph mgr (ceph Manager daemon)
-- 可以看到 health 的狀態都是 HEALTH_WARN，主要的原因在於沒有給 ceph 建立 mgr ，因此建立一個 mgr.
+#### 建立 ceph mgr \(ceph Manager daemon\)
+- 可以看到 health 的狀態都是 HEALTH\_WARN，主要的原因在於沒有給 ceph 建立 mgr ，因此建立一個 mgr\.
 
 ```
 root@ceph-node0:~# ceph health
@@ -169,7 +173,7 @@ root@ceph-node0:~# ceph-deploy mgr create ceph-node0 ceph-node1 ceph-node2 ceph-
 root@ceph-node0:~# ceph-deploy mon create ceph-node2
 root@ceph-node0:~# ceph -s
 ```
-- 若有出現錯誤我們必須在 /etc/ceph/ceph.conf ，撰寫 public network。
+- 若有出現錯誤我們必須在 /etc/ceph/ceph\.conf ，撰寫 public network。
 
 ```
 root@ceph-node0:/etc/ceph# echo "public_network = 10.1.3.0/24" >> ceph.conf
@@ -179,7 +183,7 @@ root@ceph-node0:~# ceph-deploy --overwrite-conf config push ceph-node1 ceph-node
 
 ![](assets/1a780e62cd26/1*kWlIBND4geTjQt_gLs-9Ww.png)
 
-- 成功 ! ceph monitor 變成兩個了。
+- 成功 \! ceph monitor 變成兩個了。
 
 
 在一個 ceph cluster 中 mon 為基數較佳
@@ -188,17 +192,13 @@ root@ceph-node0:~# ceph-deploy --overwrite-conf config push ceph-node1 ceph-node
 ![](assets/1a780e62cd26/1*CqUFoZZFMAzS2ZvDZtJhWw.jpeg)
 
 ### 參考資料
-- 圖文並茂 ( [網址](https://www.cnblogs.com/wangmo/p/11420197.html) )
-- 白哥的寫得很聰明 ( [網址](https://k2r2bai.com/2015/11/20/ceph/deploy/ceph-deploy/) )
-- 白哥 ceph 介紹 ( [網址](https://k2r2bai.com/2015/11/19/ceph/introduction/) )
-- ceph mon 錯誤介紹 ( [網址](http://blog.itpub.net/25854343/viewspace-2642445/) )
-- 李睿的博客 ( [網址](https://www.li-rui.top/2018/11/04/ceph/%E7%90%86%E8%A7%A3ceph%E4%B8%ADpg/) )
-- 超詳細介紹 ceph ，推 ! ( [網址](https://www.cnblogs.com/sammyliu/p/4836014.html) )
+- 圖文並茂 \( [網址](https://www.cnblogs.com/wangmo/p/11420197.html) \)
+- 白哥的寫得很聰明 \( [網址](https://k2r2bai.com/2015/11/20/ceph/deploy/ceph-deploy/) \)
+- 白哥 ceph 介紹 \( [網址](https://k2r2bai.com/2015/11/19/ceph/introduction/) \)
+- ceph mon 錯誤介紹 \( [網址](http://blog.itpub.net/25854343/viewspace-2642445/) \)
+- 李睿的博客 \( [網址](https://www.li-rui.top/2018/11/04/ceph/%E7%90%86%E8%A7%A3ceph%E4%B8%ADpg/) \)
+- 超詳細介紹 ceph ，推 \! \( [網址](https://www.cnblogs.com/sammyliu/p/4836014.html) \)
 
 
 
-+-----------------------------------------------------------------------------------+
-
-| **[View original post on Medium](https://medium.com/jacky-life/%E4%BD%BF%E7%94%A8-ceph-deploy-%E9%83%A8%E7%BD%B2-ceph-%E5%8F%A2%E9%9B%86-1a780e62cd26) - Converted by [ZhgChgLi](https://zhgchg.li)/[ZMediumToMarkdown](https://github.com/ZhgChgLi/ZMediumToMarkdown)** |
-
-+-----------------------------------------------------------------------------------+
+_Converted [Medium Post](https://medium.com/jacky-life/%E4%BD%BF%E7%94%A8-ceph-deploy-%E9%83%A8%E7%BD%B2-ceph-%E5%8F%A2%E9%9B%86-1a780e62cd26) by [ZMediumToMarkdown](https://github.com/ZhgChgLi/ZMediumToMarkdown)._

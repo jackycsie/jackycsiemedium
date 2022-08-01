@@ -1,12 +1,16 @@
 ---
 title: Gene Workflow Platform (Galaxy)
 author: 黃馨平
-date: 2020-02-26T08:08:51.114Z
+date: 2020-02-26T08:08:51.114+0000
+last_modified_at: 2020-02-26T08:09:04.931+0000
 categories: Jackycsie
 tags: [gene,workflow,automotive,netflow]
+description: Galaxy Deploy on ubuntu 18.04
+image:
+  path: assets/48082a569d9/1*4LLc3F2oW_CJ8kdDnx9L-Q.jpeg
 ---
 
-### Gene Workflow Platform (Galaxy)
+### Gene Workflow Platform \(Galaxy\)
 
 
 ![](assets/48082a569d9/1*4LLc3F2oW_CJ8kdDnx9L-Q.jpeg)
@@ -18,11 +22,11 @@ Galaxy 是一個基因流程平台，那他有分 [online](https://usegalaxy.org
 **但本篇暫時不使用 docker 喔 ，** 而是用 virtualenv。
 #### Step 0 Go to official website:
 
-[Get Galaxy
-Here you will find information on obtaining and setting up a Galaxy instance with default configuration\. If setting up…galaxyproject\.org](https://galaxyproject.org/admin/get-galaxy/)
+[**Get Galaxy**](https://galaxyproject.org/admin/get-galaxy/) 
+[_Here you will find information on obtaining and setting up a Galaxy instance with default configuration\. If setting up…_ galaxyproject\.org](https://galaxyproject.org/admin/get-galaxy/)
 #### Step 1 Download galaxy:
 
-因為 project 超大所以需要 clone 一段時間，目前用的版本是 19.09。
+因為 project 超大所以需要 clone 一段時間，目前用的版本是 19\.09。
 ```
 git clone -b release_19.09 https://github.com/galaxyproject/galaxy.git
 ```
@@ -48,7 +52,7 @@ sh run.sh
 cp config/galaxy.yml.sample config/galaxy.yml
 ```
 
-**step 4-1 改成區域網路都可以連:**
+**step 4\-1 改成區域網路都可以連:**
 ```
 vim config/galaxy.yml
 ```
@@ -121,8 +125,4 @@ sh run.sh
 
 
 
-+-----------------------------------------------------------------------------------+
-
-| **[View original post on Medium](https://medium.com/jacky-life/gene-workflow-platform-galaxy-48082a569d9) - Converted by [ZhgChgLi](https://zhgchg.li)/[ZMediumToMarkdown](https://github.com/ZhgChgLi/ZMediumToMarkdown)** |
-
-+-----------------------------------------------------------------------------------+
+_Converted [Medium Post](https://medium.com/jacky-life/gene-workflow-platform-galaxy-48082a569d9) by [ZMediumToMarkdown](https://github.com/ZhgChgLi/ZMediumToMarkdown)._

@@ -1,9 +1,13 @@
 ---
 title: Deepvariant Deploy
 author: 黃馨平
-date: 2019-11-19T08:28:14.577Z
+date: 2019-11-19T08:28:14.577+0000
+last_modified_at: 2019-11-22T07:29:02.704+0000
 categories: Jackycsie
 tags: [deepvariant,gene,tools]
+description: This article will tell you how to use deepvariant from nvidia driver.
+image:
+  path: assets/d73d983e62b2/1*nXWE2EQMzOXAiVaKToxK5A.jpeg
 ---
 
 ### Deepvariant Deploy
@@ -12,10 +16,10 @@ tags: [deepvariant,gene,tools]
 ![](assets/d73d983e62b2/1*nXWE2EQMzOXAiVaKToxK5A.jpeg)
 
 
-This article will tell you how to use deepvariant from nvidia driver.
+This article will tell you how to use deepvariant from nvidia driver\.
 #### Sponsor:
 
-We are using the D52BV provided by Quanta Computer.
+We are using the D52BV provided by Quanta Computer\.
 
 Environment inside:
 - 80 vCPU
@@ -24,52 +28,52 @@ Environment inside:
 
 
 
-![https://www\.qct\.io/product/index/Server/rackmount\-server/GPGPU\-Xeon\-Phi/QuantaGrid\-D52BV\-2U](assets/d73d983e62b2/1*EvFCoPMscMqeXZnlpC0f6w.png "https://www\.qct\.io/product/index/Server/rackmount\-server/GPGPU\-Xeon\-Phi/QuantaGrid\-D52BV\-2U")
+![[https://www\.qct\.io/product/index/Server/rackmount\-server/GPGPU\-Xeon\-Phi/QuantaGrid\-D52BV\-2U](https://www.qct.io/product/index/Server/rackmount-server/GPGPU-Xeon-Phi/QuantaGrid-D52BV-2U)](assets/d73d983e62b2/1*EvFCoPMscMqeXZnlpC0f6w.png)
 
-[https://www.qct.io/product/index/Server/rackmount-server/GPGPU-Xeon-Phi/QuantaGrid-D52BV-2U](https://www.qct.io/product/index/Server/rackmount-server/GPGPU-Xeon-Phi/QuantaGrid-D52BV-2U)
+[https://www\.qct\.io/product/index/Server/rackmount\-server/GPGPU\-Xeon\-Phi/QuantaGrid\-D52BV\-2U](https://www.qct.io/product/index/Server/rackmount-server/GPGPU-Xeon-Phi/QuantaGrid-D52BV-2U)
 ### Environmental configuration
-- Ubuntu 18.04 LTS
-- Nvidia driver 410.129
-- CUDA 10.0
-- cudnn 7.6.3
-- Bazel 0.19.2
-- Tensorflow 1.13
-- DeepVariant 0.8.0
-- Python2.7
-- Java 1.8
+- Ubuntu 18\.04 LTS
+- Nvidia driver 410\.129
+- CUDA 10\.0
+- cudnn 7\.6\.3
+- Bazel 0\.19\.2
+- Tensorflow 1\.13
+- DeepVariant 0\.8\.0
+- Python2\.7
+- Java 1\.8
 
 ### Install Nvidia driver
 
-Before you install nvidia driver. You need go to this [page](https://www.nvidia.com.tw/Download/index.aspx?lang=tw) download program.
+Before you install nvidia driver\. You need go to this [page](https://www.nvidia.com.tw/Download/index.aspx?lang=tw) download program\.
 ```
 sudo chmod u+x NVIDIA-Linux-x86_64-410.129-diagnostic.run
 sudo ./NVIDIA-Linux-x86_64-410.129-diagnostic.run
 ```
 
-If you install fail or you lack some tools, this command is uninstall driver.
+If you install fail or you lack some tools, this command is uninstall driver\.
 ```
 sudo ./NVIDIA-Linux-x86_64-410.129-diagnostic.run --uninstall
 ```
 
-Then, follow below command.
+Then, follow below command\.
 ```
 nvidia-smi
 ```
 
-You can see this figure.
+You can see this figure\.
 
-Congratulations, you did it.
+Congratulations, you did it\.
 
-By the way. I delete GPU UUID, so you can’t see it.
+By the way\. I delete GPU UUID, so you can’t see it\.
 
 
 ![](assets/d73d983e62b2/1*7PBTixoKzH6qsVZ88EANag.png)
 
-### Install CUDA 10.0
+### Install CUDA 10\.0
 
-First you need go to this [page](https://developer.nvidia.com/cuda-10.0-download-archive?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=1804&target_type=deblocal) download CUDA 10.0
+First you need go to this [page](https://developer.nvidia.com/cuda-10.0-download-archive?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=1804&target_type=deblocal) download CUDA 10\.0
 
-And follow below command.
+And follow below command\.
 ```
 sudo dpkg -i cuda-repo-ubuntu1804-10-0-local-10.0.130-410.48_1.0-1_amd64.deb
 sudo apt-key add /var/cuda-repo-10-0-local-10.0.130-410.48/7fa2af80.pub
@@ -83,9 +87,9 @@ export PATH=$PATH:/usr/local/cuda/bin/;
 source ~/.bashrc
 ```
 
-Then, input this command you can see CUDA version.
+Then, input this command you can see CUDA version\.
 
-This means that CUDA was successfully installed.
+This means that CUDA was successfully installed\.
 ```
 nvcc -V
 ```
@@ -93,25 +97,25 @@ nvcc -V
 
 ![](assets/d73d983e62b2/1*TbprhrRHzJmqEzjaZE-tUQ.jpeg)
 
-### Install Cudnn 7.6.3
+### Install Cudnn 7\.6\.3
 
-You need go to this [page](https://developer.nvidia.com/rdp/form/cudnn-download-survey) download three file.
-- libcudnn7_7.6.3.30–1+cuda10.0_amd64.deb
-- libcudnn7-dev_7.6.3.30–1+cuda10.0_amd64.deb
-- libcudnn7-doc_7.6.3.30–1+cuda10.0_amd64.deb
+You need go to this [page](https://developer.nvidia.com/rdp/form/cudnn-download-survey) download three file\.
+- libcudnn7\_7\.6\.3\.30–1\+cuda10\.0\_amd64\.deb
+- libcudnn7\-dev\_7\.6\.3\.30–1\+cuda10\.0\_amd64\.deb
+- libcudnn7\-doc\_7\.6\.3\.30–1\+cuda10\.0\_amd64\.deb
 
 ```
 sudo dpkg -i libcudnn7_7.6.3.30-1+cuda10.0_amd64.deb
 sudo dpkg -i libcudnn7-dev_7.6.3.30-1+cuda10.0_amd64.deb
 sudo dpkg -i libcudnn7-doc_7.6.3.30-1+cuda10.0_amd64.deb
 ```
-### Install Bazel 0.19.2
+### Install Bazel 0\.19\.2
 
 Install required packages
 
 `sudo apt-get install pkg-config zip g++ zlib1g-dev unzip python`
 
-Download bazel 0.19.2
+Download bazel 0\.19\.2
 ```
 https://github.com/bazelbuild/bazel/releases/tag/0.19.2
 bazel-0.19.2-installer-linux-x86_64.sh
@@ -120,17 +124,17 @@ chmod +x bazel-0.19.2-installer-linux-x86_64.sh4
 vim ~/.bashrc
 export PATH=”$PATH:$HOME/bin”
 ```
-### Install Tensorflow GPU 1.13
+### Install Tensorflow GPU 1\.13
 
 First you need use Python2
 
-If you are use Python3 use can change python version.
+If you are use Python3 use can change python version\.
 ```
 ls /usr/local/python*
 Python --version
 ```
 
-Install tensorflow-gpu 1.13.1
+Install tensorflow\-gpu 1\.13\.1
 ```
 sudo apt-get install python3-distutils
 pip install tensorflow-gpu==1.13.1
@@ -138,11 +142,11 @@ pip install setuptools
 ```
 ### Download DeepVariant
 
-You need to go to deepvariant github page.
+You need to go to deepvariant github page\.
 
-Download the deepvariant version you want.
+Download the deepvariant version you want\.
 
-[Github](https://github.com/google/deepvariant/releases) . We use deepvariant 0.8.0
+[Github](https://github.com/google/deepvariant/releases) \. We use deepvariant 0\.8\.0
 ```
 wget https://github.com/google/deepvariant/releases/download/v0.8.0/deepvariant.zip
 ```
@@ -153,14 +157,14 @@ wget https://github.com/google/deepvariant/releases/download/v0.8.0/deepvariant.
 
 
 
-![https://www\.lizenghai\.com/archives/27764\.html](assets/d73d983e62b2/1*xw_kkD60TvZfv5Qi1o7GPw.png "https://www\.lizenghai\.com/archives/27764\.html")
+![[https://www\.lizenghai\.com/archives/27764\.html](https://www.lizenghai.com/archives/27764.html)](assets/d73d983e62b2/1*xw_kkD60TvZfv5Qi1o7GPw.png)
 
-[https://www.lizenghai.com/archives/27764.html](https://www.lizenghai.com/archives/27764.html)
+[https://www\.lizenghai\.com/archives/27764\.html](https://www.lizenghai.com/archives/27764.html)
 #### Make example
 
 You need go to this path:
 
-You can find make example.
+You can find make example\.
 ```
 deepvariant/binaries/DeepVariant/0.8.0/DeepVariant-0.8.0/make_examples.zip
 ```
@@ -219,34 +223,30 @@ Jacky
 
 If you feel that you don’t understand how to deploy environment ?
 
-You can use this approach.
+You can use this approach\.
 
-This method could be use.
+This method could be use\.
 
-However I didn’t try it. Maybe you can try.
+However I didn’t try it\. Maybe you can try\.
 ```
 git clone https://github.com/google/deepvariant.git
 cd deepvariant
 ```
 
-Because very tools always using Java 1.8.
+Because very tools always using Java 1\.8\.
 
-However, if you use Ubuntu 18.04 defaults version is 1.11 so you need change version.
+However, if you use Ubuntu 18\.04 defaults version is 1\.11 so you need change version\.
 ```
 update-alternatives --config java
 java -version
 ```
 ### Reference
-- [https://github.com/google/deepvariant](https://github.com/google/deepvariant)
+- [https://github\.com/google/deepvariant](https://github.com/google/deepvariant)
 - [Bazel download](https://docs.bazel.build/versions/0.19.1/install-ubuntu.html)
 - [Version check](https://stackoverflow.com/questions/50622525/which-tensorflow-and-cuda-version-combinations-are-compatible)
-- [https://www.lizenghai.com/archives/27764.html](https://www.lizenghai.com/archives/27764.html)
+- [https://www\.lizenghai\.com/archives/27764\.html](https://www.lizenghai.com/archives/27764.html)
 - [D52BV](https://www.qct.io/product/index/Server/rackmount-server/GPGPU-Xeon-Phi/QuantaGrid-D52BV-2U)
 
 
 
-+-----------------------------------------------------------------------------------+
-
-| **[View original post on Medium](https://medium.com/jacky-life/deepvariant-deploy-d73d983e62b2) - Converted by [ZhgChgLi](https://zhgchg.li)/[ZMediumToMarkdown](https://github.com/ZhgChgLi/ZMediumToMarkdown)** |
-
-+-----------------------------------------------------------------------------------+
+_Converted [Medium Post](https://medium.com/jacky-life/deepvariant-deploy-d73d983e62b2) by [ZMediumToMarkdown](https://github.com/ZhgChgLi/ZMediumToMarkdown)._

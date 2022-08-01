@@ -1,9 +1,13 @@
 ---
 title: How to download big file ?
 author: 黃馨平
-date: 2019-12-04T02:09:10.508Z
+date: 2019-12-04T02:09:10.508+0000
+last_modified_at: 2019-12-13T06:01:01.428+0000
 categories: Jackycsie
 tags: [technology,axel,multithread,ubuntu,tools]
+description: Using axel download big file in ubuntu system.
+image:
+  path: assets/c17688745a5d/1*2pIY2vFPXOW739fdFWOFIQ.jpeg
 ---
 
 ### How to download big file on ubuntu?
@@ -12,13 +16,13 @@ tags: [technology,axel,multithread,ubuntu,tools]
 ![](assets/c17688745a5d/1*2pIY2vFPXOW739fdFWOFIQ.jpeg)
 
 
-If you use ubuntu systems, we usually use wget as a must-have tool for downloading files.
+If you use ubuntu systems, we usually use wget as a must\-have tool for downloading files\.
 
-However we know wget is a one process tools.
+However we know wget is a one process tools\.
 
-So if we need download big file. wget will be very slow.
+So if we need download big file\. wget will be very slow\.
 
-I recommend a tool called axel.
+I recommend a tool called axel\.
 ### Install axel
 ```
 sudo apt update
@@ -31,23 +35,23 @@ axel --help
 
 ### Download file
 
-As an example, I downloaded the 831 MB file.
+As an example, I downloaded the 831 MB file\.
 
-wget need use 4 hr when network speed have 1 Mbit/s.
+wget need use 4 hr when network speed have 1 Mbit/s\.
 
-However when we use axel spent time only 5 minutes.
+However when we use axel spent time only 5 minutes\.
 
 The command will look like this:
 ```
 axel -n 80 -S5 http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/human_g1k_v37.fasta.gz
 ```
-- -n : use 80 thread accelerate download
-- -S5 : This means that the file search engine filesearching.com is used to find the image file in order to increase the download speed
-- -o : save file path
+- \-n : use 80 thread accelerate download
+- \-S5 : This means that the file search engine filesearching\.com is used to find the image file in order to increase the download speed
+- \-o : save file path
 
 ### Download FTP file
 
-Sometimes we need use ftp download files.
+Sometimes we need use ftp download files\.
 
 So how to use axel download ftp file ?
 ```
@@ -55,13 +59,13 @@ axel -n 32 -S5 \
 "ftp://gsapubftp-anonymous: @ftp.broadinstitute.org/bundle/b37/NA12878.HiSeq.WGS.bwa.cleaned.raw.subset.b37.vcf.gz"
 ```
 - ftp:// : you use protocol
-- gsapubftp-anonymous : username
+- gsapubftp\-anonymous : username
 - :password : ftp password
 - @ : we want to download url
 
 ### End
 
-Next time I will talk you how to download GCP file using mutlithread.
+Next time I will talk you how to download GCP file using mutlithread\.
 
 
 ![](assets/c17688745a5d/1*Qxz_AwMSypWEHpIIwcCmzQ.jpeg)
@@ -69,8 +73,4 @@ Next time I will talk you how to download GCP file using mutlithread.
 
 
 
-+-----------------------------------------------------------------------------------+
-
-| **[View original post on Medium](https://medium.com/jacky-life/how-to-download-big-file-c17688745a5d) - Converted by [ZhgChgLi](https://zhgchg.li)/[ZMediumToMarkdown](https://github.com/ZhgChgLi/ZMediumToMarkdown)** |
-
-+-----------------------------------------------------------------------------------+
+_Converted [Medium Post](https://medium.com/jacky-life/how-to-download-big-file-c17688745a5d) by [ZMediumToMarkdown](https://github.com/ZhgChgLi/ZMediumToMarkdown)._

@@ -1,31 +1,35 @@
 ---
 title: Through Python SSH Tool get infra data.
 author: 黃馨平
-date: 2021-12-14T11:53:20.285Z
+date: 2021-12-14T11:53:20.285+0000
+last_modified_at: 2021-12-14T11:53:20.285+0000
 categories: 
 tags: [paramiko,cisco]
+description: 透過 python SSH tool (Paramiko) 達到如同 CLI 的交互是命令的功能。
+image:
+  path: assets/b711d343967c/1*upWXZoxAEV_Ocs29rfHlnA.jpeg
 ---
 
-### Through Python SSH Tool get infra data.
+### Through Python SSH Tool get infra data\.
 
 
 ![](assets/b711d343967c/1*upWXZoxAEV_Ocs29rfHlnA.jpeg)
 
 
-本篇文章主要是紀錄一下，如過透過 python SSH tool(paramiko) 達到如同 CLI 的交互是命令的功能。
+本篇文章主要是紀錄一下，如過透過 python SSH tool\(paramiko\) 達到如同 CLI 的交互是命令的功能。
 
 因為最近有需要撈我們 Cisco UCS FI 的一些 system 資訊，但又不想要一台台進去下 command 撈資料，而這些 system 的資訊， Cisco 官方並也沒有提供 SDK 可以讓我們直接 filter 出來，因次只能自己稍微開發一下讓她快速簡單的自動化處理。
 
 那我們這次使用的工具是 python 的 paramiko tool。
 
-官方文件: [https://www.paramiko.org/](https://www.paramiko.org/)
+官方文件: [https://www\.paramiko\.org/](https://www.paramiko.org/)
 ```
 pip install paramiko
 ```
 
 透過 pip install 以後就可以開始使用了。
 
-下面方法為普通開一個 session 的使用方法，但這個方法有一個壞處就是沒辦法同時下多個指令，當然若你連接的是 Linux Server 的話其實沒關係，因為可以使用 ";" 號做多行指令的切割或者 "|"，當然若是嫌麻煩，ansible or shell script 也是你的好夥伴。
+下面方法為普通開一個 session 的使用方法，但這個方法有一個壞處就是沒辦法同時下多個指令，當然若你連接的是 Linux Server 的話其實沒關係，因為可以使用 ";" 號做多行指令的切割或者 "\|"，當然若是嫌麻煩，ansible or shell script 也是你的好夥伴。
 ```python
 #!/usr/bin/python
 import paramiko
@@ -73,8 +77,4 @@ ssh.close()
 
 
 
-+-----------------------------------------------------------------------------------+
-
-| **[View original post on Medium](https://medium.com/@jackycsie/through-python-ssh-tool-get-infra-data-b711d343967c) - Converted by [ZhgChgLi](https://zhgchg.li)/[ZMediumToMarkdown](https://github.com/ZhgChgLi/ZMediumToMarkdown)** |
-
-+-----------------------------------------------------------------------------------+
+_Converted [Medium Post](https://medium.com/@jackycsie/through-python-ssh-tool-get-infra-data-b711d343967c) by [ZMediumToMarkdown](https://github.com/ZhgChgLi/ZMediumToMarkdown)._

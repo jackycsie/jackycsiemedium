@@ -1,12 +1,16 @@
 ---
 title: Deploy slurm on ubuntu 18.04
 author: 黃馨平
-date: 2020-03-11T07:30:03.706Z
+date: 2020-03-11T07:30:03.706+0000
+last_modified_at: 2020-03-20T00:41:22.326+0000
 categories: Jackycsie
 tags: [schedule,netflow,gene,workflow,tools]
+description: Slurm 是使用在 UNIX 上的任務調度工具，使用者可以忽略系統下的複雜處理，直接透過 slurm，快速解決任務排程問題。
+image:
+  path: assets/33abb6e902c4/1*SJqzf5f4jRvIUlRUzdD7Cw.jpeg
 ---
 
-### Deploy slurm on ubuntu 18.04
+### Deploy slurm on ubuntu 18\.04
 
 
 ![](assets/33abb6e902c4/1*SJqzf5f4jRvIUlRUzdD7Cw.jpeg)
@@ -29,11 +33,12 @@ tags: [schedule,netflow,gene,workflow,tools]
 因機器數量有限就拿 2 台做實驗吧。
 #### Tips:
 - 若是可以先將 ssh 設定為輸入 ip or hostname 就可以登入較佳。
-- 目前自己實測 slurm 的版本必須相同，另外也是使用相同的 Ubuntu 18.04，不同的 OS version，盡量改成相同的 slurm tool version。
-- 在未來的 slurm.conf 與 munge 的 key 都是所有的 machine 都要有相同的一份，並且啟動與關閉時，確保每一台 machine 都有相同 state，較不容易出錯。
+- 目前自己實測 slurm 的版本必須相同，另外也是使用相同的 Ubuntu 18\.04，不同的 OS version，盡量改成相同的 slurm tool version。
+- 在未來的 slurm\.conf 與 munge 的 key 都是所有的 machine 都要有相同的一份，並且啟動與關閉時，確保每一台 machine 都有相同 state，較不容易出錯。
 
-### Install Munge ( every node, machine)
-> M _UNGE is an authentication service for creating and validating credentials. It is designed to be highly scalable for use in an HPC cluster environment. It allows a process to authenticate the UID and GID of another local or remote process within a group of hosts having common users and groups. These hosts form a security realm that is defined by a shared cryptographic key. Clients within this security realm can create and validate credentials without the use of root privileges, reserved ports, or platform-specific methods._
+### Install Munge \( every node, machine\)
+> M _UNGE is an authentication service for creating and validating credentials\. It is designed to be highly scalable for use in an HPC cluster environment\. It allows a process to authenticate the UID and GID of another local or remote process within a group of hosts having common users and groups\. These hosts form a security realm that is defined by a shared cryptographic key\. Clients within this security realm can create and validate credentials without the use of root privileges, reserved ports, or platform\-specific methods\._ 
+
 
 - Download munge
 
@@ -75,7 +80,7 @@ jacky97: scp /etc/munge/munge.key root@jacky98:/etc/munge/
 ```
 jacky97: munge -n | unmunge
 ```
-- 接著驗證一下 compute node (jacky98)
+- 接著驗證一下 compute node \(jacky98\)
 
 ```
 jacky97: munge -n | ssh jacky98 unmunge
@@ -105,7 +110,7 @@ sudo apt install slurm-wlm slurm-wlm-doc -y
 jacky97: slurmd -V
 slurm-wlm 17.11.2
 ```
-- 透過 slurmd -C 指令了解這個 node 的硬體配置。
+- 透過 slurmd \-C 指令了解這個 node 的硬體配置。
 
 ```
 jacky97: slurmd -C
@@ -116,8 +121,8 @@ UpTime=0-04:46:35
 
 
 設定 config 有兩種方式:
-1. 透過 官方提供的 [https://slurm.schedmd.com/configurator.html](https://slurm.schedmd.com/configurator.html) ，選擇你想要的內容案送出就會有 slurm.conf ，接著 copy 到每一個 node 就可以了。
-2. 使用自己的 config，然後在每一個 node 上放入 slurm.conf。放入的位置是 /etc/slurm-llnl/ 。
+1. 透過 官方提供的 [https://slurm\.schedmd\.com/configurator\.html](https://slurm.schedmd.com/configurator.html) ，選擇你想要的內容案送出就會有 slurm\.conf ，接著 copy 到每一個 node 就可以了。
+2. 使用自己的 config，然後在每一個 node 上放入 slurm\.conf。放入的位置是 /etc/slurm\-llnl/ 。
 
 - 這裡要注意的地方在 ControlMachine 就是 control node 設你的 hostname， NodeName，有幾個 control node 就設幾個 Node name，最後最重要的是 PartitionName 的 Nodes 必須把想要 run 的 node 都寫進去，不然會偵測不到。
 
@@ -233,7 +238,7 @@ sbatch bwa_script.sh
 R 代表執行中, 
 PD 代表 hold 住 等目前的跑完就換他了。
 - TIME : 表示目前跑了多久。
-- NODELST (REASON) : 代表正在跑的 node 有誰。
+- NODELST \(REASON\) : 代表正在跑的 node 有誰。
 
 ```
 jacky97: squeue
@@ -248,35 +253,31 @@ jacky97: squeue
 /etc/init.d/slurmd stop
 ```
 #### 參考文獻
-1. Deploy slurm on Ubuntu 18.04 ( [single machine](https://www.linuxwave.info/2019/10/installing-slurm-workload-manager-job.html) ).
+1. Deploy slurm on Ubuntu 18\.04 \( [single machine](https://www.linuxwave.info/2019/10/installing-slurm-workload-manager-job.html) \) \.
 
 
-2. Multiple server deploy ( [website](https://itanch.github.io/2015/09/10/slurm%E5%AE%89%E8%A3%85/) ).
+2\. Multiple server deploy \( [website](https://itanch.github.io/2015/09/10/slurm%E5%AE%89%E8%A3%85/) \) \.
 
-3. [Ubuntu 18.04/Mint 19 单机安装Slurm](https://cndaqiang.github.io/2020/02/24/slurm/) .
+3\. [Ubuntu 18\.04/Mint 19 单机安装Slurm](https://cndaqiang.github.io/2020/02/24/slurm/) \.
 
-4. [Munge 安裝檔](https://github.com/dun/munge/wiki/Installation-Guide) .
+4\. [Munge 安裝檔](https://github.com/dun/munge/wiki/Installation-Guide) \.
 
-5. 超完整 slurm 介紹，不推不行 ( [website](http://hmli.ustc.edu.cn/doc/userguide/slurm-userguide.pdf) ).
+5\. 超完整 slurm 介紹，不推不行 \( [website](http://hmli.ustc.edu.cn/doc/userguide/slurm-userguide.pdf) \) \.
 
-6. Slurm 中文官方網站 ( [website](https://docs.slurm.cn/users/) ).
+6\. Slurm 中文官方網站 \( [website](https://docs.slurm.cn/users/) \) \.
 
-7.Slurm 英文官方網站 ( [website](https://slurm.schedmd.com/sbatch.html) ).
+7\.Slurm 英文官方網站 \( [website](https://slurm.schedmd.com/sbatch.html) \) \.
 
-8. Slrum 框架介紹圖 ( [website](https://www.cnblogs.com/liwanliangblog/p/9203907.html) ).
+8\. Slrum 框架介紹圖 \( [website](https://www.cnblogs.com/liwanliangblog/p/9203907.html) \) \.
 
-9. 簡單小筆記 ( [website](https://ccnrz.wordpress.com/2018/08/01/ubuntu-%E5%BB%BA%E7%BD%AE-slurm-%E5%8F%A2%E9%9B%86%E9%81%8B%E7%AE%97%E7%AE%A1%E7%90%86%E7%92%B0%E5%A2%83/) ).
+9\. 簡單小筆記 \( [website](https://ccnrz.wordpress.com/2018/08/01/ubuntu-%E5%BB%BA%E7%BD%AE-slurm-%E5%8F%A2%E9%9B%86%E9%81%8B%E7%AE%97%E7%AE%A1%E7%90%86%E7%92%B0%E5%A2%83/) \) \.
 
-10. Partition introduce ( [website](http://bicmr.pku.edu.cn/~wenzw/pages/slurm.html) ).
+10\. Partition introduce \( [website](http://bicmr.pku.edu.cn/~wenzw/pages/slurm.html) \) \.
 
-11. slurm execute job log record ( [website](https://blog.csdn.net/kongxx/article/details/52550653) ).
+11\. slurm execute job log record \( [website](https://blog.csdn.net/kongxx/article/details/52550653) \) \.
 
 這篇專注在安裝跟基礎教學，非常推薦看第 5 個連結，非常容易懂，若有問題可以在下方留言，或者想要看甚麼類型的 Demo 都可以 17 討論喔。
 
 
 
-+-----------------------------------------------------------------------------------+
-
-| **[View original post on Medium](https://medium.com/jacky-life/deploy-slurm-on-ubuntu-18-04-33abb6e902c4) - Converted by [ZhgChgLi](https://zhgchg.li)/[ZMediumToMarkdown](https://github.com/ZhgChgLi/ZMediumToMarkdown)** |
-
-+-----------------------------------------------------------------------------------+
+_Converted [Medium Post](https://medium.com/jacky-life/deploy-slurm-on-ubuntu-18-04-33abb6e902c4) by [ZMediumToMarkdown](https://github.com/ZhgChgLi/ZMediumToMarkdown)._

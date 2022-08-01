@@ -1,19 +1,23 @@
 ---
 title: Ubuntu 透過 Ansible 部署 CEPH
 author: 黃馨平
-date: 2020-04-15T02:29:16.884Z
+date: 2020-04-15T02:29:16.884+0000
+last_modified_at: 2020-05-22T07:25:17.708+0000
 categories: Jackycsie
 tags: [ceph,ansible,ubuntu,filesystem]
+description: 本篇會介紹如何在 ubuntu system 透過 ceph-ansible 工具安裝一個 ceph 叢集。
+image:
+  path: assets/6a4af7a1f208/1*jOLqbm0Slm8z18wrZv6RgA.jpeg
 ---
 
-### [Ubuntu] 透過 Ansible 部署 CEPH
+### \[Ubuntu\] 透過 Ansible 部署 CEPH
 
 
 ![](assets/6a4af7a1f208/1*jOLqbm0Slm8z18wrZv6RgA.jpeg)
 
 
-本篇會介紹如何透過 ceph-ansible 工具安裝一個 ceph 叢集，使用的環境是 ubuntu 18.04 LTS ，一個最簡單的 Ceph 儲存叢集至少要一台 `Monitor` 與三台 `OSD` 。而 MDS 是當需要使用到 CephFS 的時候才需要部署。
-### 1.環境準備
+本篇會介紹如何透過 ceph\-ansible 工具安裝一個 ceph 叢集，使用的環境是 ubuntu 18\.04 LTS ，一個最簡單的 Ceph 儲存叢集至少要一台 `Monitor` 與三台 `OSD` 。而 MDS 是當需要使用到 CephFS 的時候才需要部署。
+### 1\.環境準備
 
 本次安裝會擁有 5 台 node，叢集拓樸圖如下所示：
 
@@ -35,19 +39,19 @@ $ hostnamectl set-hostname {你想要的 hostname}
 
 ![](assets/6a4af7a1f208/1*yU55i28uG2ZC1shkt-Usww.jpeg)
 
-- Ansible Node 先設定好可以直接不須密碼連進其他台 node(server).
+- Ansible Node 先設定好可以直接不須密碼連進其他台 node\(server\) \.
 
 ```
 $ ssh-keygen
 $ ssh-copy-id root@ceph-node[1-4]
 ```
-### 2.安裝 Ansible
-- 在 Ceph-Ansible 節點上安裝 ansible 工具。
+### 2\.安裝 Ansible
+- 在 Ceph\-Ansible 節點上安裝 ansible 工具。
 
 ```
 root@ceph-ansible:~# apt-get install -y software-properties-common git cowsay
 ```
-- 在 Ceph-Ansible 節點中，輸入以下內容。
+- 在 Ceph\-Ansible 節點中，輸入以下內容。
 
 
 
@@ -62,8 +66,8 @@ root@ceph-ansible:~# ansible all -m ping
 
 ![](assets/6a4af7a1f208/1*nKQX2M4Hhqk2Jpjwt3kACQ.jpeg)
 
-### 3.透過 Ceph-Ansible 部屬 Ceph 叢集
-- 下載 ceph-aisible，轉 branch 到 stable-5.0，安裝必要檔案。
+### 3\.透過 Ceph\-Ansible 部屬 Ceph 叢集
+- 下載 ceph\-aisible，轉 branch 到 stable\-5\.0，安裝必要檔案。
 
 ```
 root@ceph-ansible:~# git clone "https://github.com/ceph/ceph-ansible.git"
@@ -81,7 +85,7 @@ root@ceph-ansible:~/ceph-ansible# cp site.yml.sample site.yml
 root@ceph-ansible:~/ceph-ansible# cp group_vars/all.yml.sample group_vars/all.yml
 root@ceph-ansible:~/ceph-ansible# cp group_vars/osds.yml.sample group_vars/osds.yml
 ```
-- 修改 group_vars/all.yml 中的配置。
+- 修改 group\_vars/all\.yml 中的配置。
 
 ```
 50: mon_group_name: mons
@@ -920,7 +924,7 @@ grafana_admin_password: password
 ---
 略
 ```
-- 修改 group_vars/osds.yml 中的配置。
+- 修改 group\_vars/osds\.yml 中的配置。
 
 ```
 18: copy_admin_key: true
@@ -982,7 +986,7 @@ osd_scenario: collocated
 ---
 略
 ```
-- 修改 group_vars/mgrs.yml 中的配置。
+- 修改 group\_vars/mgrs\.yml 中的配置。
 
 ```
 26: ceph_mgr_modules: [status]
@@ -1015,13 +1019,13 @@ dummy:
 # and replace CEPH_VERSION with your current Ceph version, e,g: 'mimic'
 ceph_mgr_modules: [status]
 ```
-- 修改 site.yml 中的配置。
+- 修改 site\.yml 中的配置。
 - 完成上述的編輯以後，透過下面指令進行部署。
 
 ```
 root@ceph-ansible:~/ceph-ansible# ansible-playbook site.yml
 ```
-#### 完成 !
+#### 完成 \!
 
 
 ![](assets/6a4af7a1f208/1*7_nPOonnlpmBCzo3NoXomQ.png)
@@ -1029,8 +1033,4 @@ root@ceph-ansible:~/ceph-ansible# ansible-playbook site.yml
 
 
 
-+-----------------------------------------------------------------------------------+
-
-| **[View original post on Medium](https://medium.com/jacky-life/ubuntu-%E9%80%8F%E9%81%8E-ansible-%E9%83%A8%E7%BD%B2-ceph-6a4af7a1f208) - Converted by [ZhgChgLi](https://zhgchg.li)/[ZMediumToMarkdown](https://github.com/ZhgChgLi/ZMediumToMarkdown)** |
-
-+-----------------------------------------------------------------------------------+
+_Converted [Medium Post](https://medium.com/jacky-life/ubuntu-%E9%80%8F%E9%81%8E-ansible-%E9%83%A8%E7%BD%B2-ceph-6a4af7a1f208) by [ZMediumToMarkdown](https://github.com/ZhgChgLi/ZMediumToMarkdown)._

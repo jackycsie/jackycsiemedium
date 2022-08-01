@@ -1,31 +1,35 @@
 ---
 title: Ubuntu 18.04 Deploy GPU Environment
 author: 黃馨平
-date: 2019-11-22T08:03:57.029Z
+date: 2019-11-22T08:03:57.029+0000
+last_modified_at: 2019-12-12T08:41:32.223+0000
 categories: Jackycsie
 tags: [ubuntu,gpu,v100,tensorflow,tools]
+description: This article will used smart way install GPU environment.
+image:
+  path: assets/196ebea555d3/1*iIUsgtYLCixP2WOm1Ky3Eg.jpeg
 ---
 
-### Ubuntu 18.04 Deploy GPU Environment
+### Ubuntu 18\.04 Deploy GPU Environment
 
 
 ![](assets/196ebea555d3/1*iIUsgtYLCixP2WOm1Ky3Eg.jpeg)
 
 
-This article will used smart way install GPU environment.
+This article will used smart way install GPU environment\.
 
-Why so smart ? Because I used a rather stupid way.
+Why so smart ? Because I used a rather stupid way\.
 
-This method is stupid method “ [deepvariant](https://medium.com/@jackycsie/deepvariant-deploy-d73d983e62b2?source=your_stories_page---------------------------) install”.
+This method is stupid method “ [deepvariant](https://medium.com/@jackycsie/deepvariant-deploy-d73d983e62b2?source=your_stories_page---------------------------) install”\.
 
-Why stupid. Because this way sometime will fall.
+Why stupid\. Because this way sometime will fall\.
 
-This is very angry.
+This is very angry\.
 
-Because we want focus deep learning or other professional field not environment issue.
+Because we want focus deep learning or other professional field not environment issue\.
 ### About machine
 
-We are using the D52G provided by Quanta Computer.
+We are using the D52G provided by Quanta Computer\.
 
 
 ![](assets/196ebea555d3/1*wme6iaRscaUPWd6wLRI8wg.jpeg)
@@ -37,23 +41,23 @@ Environment inside:
 - 768 GiB RAM
 
 ### Environmental configuration
-- Ubuntu 18.04 LTS
-- Nvidia driver 440.33.01
-- CUDA 10.0
-- cudnn 7.6.3
-- Tensorflow GPU 1.13
+- Ubuntu 18\.04 LTS
+- Nvidia driver 440\.33\.01
+- CUDA 10\.0
+- cudnn 7\.6\.3
+- Tensorflow GPU 1\.13
 
-### 1. you need clean your environment.
+### 1\. you need clean your environment\.
 
-If your machine is not Re-irrigation system.
+If your machine is not Re\-irrigation system\.
 
-You can skip this step.
+You can skip this step\.
 ```
 apt-get remove --purge '^nvidia-.*'
 apt autoremove
 apt update
 ```
-### 2. install Nvidia driver
+### 2\. install Nvidia driver
 
 Add repository to your apt
 ```
@@ -63,9 +67,9 @@ apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repo
 apt update
 wget http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1804/x86_64/nvidia-machine-learning-repo-ubuntu1804_1.0.0-1_amd64.deb
 ```
-### 3. Check your ubuntu-drivers
+### 3\. Check your ubuntu\-drivers
 
-If ubuntu-drvers have nvidia drivers you can direct download.
+If ubuntu\-drvers have nvidia drivers you can direct download\.
 ```
 ubuntu-drivers devices
 ```
@@ -74,7 +78,7 @@ ubuntu-drivers devices
 ![](assets/196ebea555d3/1*7af5mr54GfmyRHsH8OE3Sg.jpeg)
 
 
-You can choose autoinstall or own want version.
+You can choose autoinstall or own want version\.
 ```
 #autoinstall
 ubuntu-drivers autoinstall
@@ -90,22 +94,22 @@ Testing
 nvidia-smi
 ```
 
-You can see this figure show CUDA version:10.2.
+You can see this figure show CUDA version:10\.2\.
 
-It’s ok. because It’s wrong.
+It’s ok\. because It’s wrong\.
 
-Finally, it will still be based on your installation.
+Finally, it will still be based on your installation\.
 
 
 ![](assets/196ebea555d3/1*WoTVBK_7JBUpUCgOz-sGrA.png)
 
-### 4. Install CUDA 10 and Cudnn 7.6.3
+### 4\. Install CUDA 10 and Cudnn 7\.6\.3
 
-First you need go this [page](https://developer.nvidia.com/rdp/form/cudnn-download-survey) download cudnn.
+First you need go this [page](https://developer.nvidia.com/rdp/form/cudnn-download-survey) download cudnn\.
 
-Then, go to you download folder.
+Then, go to you download folder\.
 
-This command will be easy to install cudnn.
+This command will be easy to install cudnn\.
 ```
 apt install --no-install-recommends cuda-10-0
 ```
@@ -132,7 +136,7 @@ dpkg -i libcudnn7_7.6.3.30-1+cuda10.0_amd64.deb
 dpkg -i libcudnn7-dev_7.6.3.30-1+cuda10.0_amd64.deb
 dpkg -i libcudnn7-doc_7.6.3.30-1+cuda10.0_amd64.deb
 ```
-### 5. install tensorflow-gpu 1.13.1
+### 5\. install tensorflow\-gpu 1\.13\.1
 ```
 pip install tensorflow-gpu==1.13.1
 pip show tensorflow-gpu
@@ -147,7 +151,7 @@ Testing
 import tensorflow as tf
 tf.test.gpu_device_name()
 ```
-### It’s work.
+### It’s work\.
 
 
 ![](assets/196ebea555d3/1*Lz-OS8afNj4QG_9kDeY76A.jpeg)
@@ -158,16 +162,12 @@ tf.test.gpu_device_name()
 ![](assets/196ebea555d3/1*u-93OlKDlXyRT3_z6YEQjg.jpeg)
 
 ### Reference
-1. [https://www.tensorflow.org/install/gpu#software_requirements](https://www.tensorflow.org/install/gpu#software_requirements)
+1. [https://www\.tensorflow\.org/install/gpu\#software\_requirements](https://www.tensorflow.org/install/gpu#software_requirements)
 2. [Chinese article](https://medium.com/@maniac.tw/ubuntu-18-04-%E5%AE%89%E8%A3%9D-nvidia-driver-418-cuda-10-tensorflow-1-13-a4f1c71dd8e5)
-3. [https://developer.nvidia.com/nvidia-tensorrt-6x-download](https://developer.nvidia.com/nvidia-tensorrt-6x-download)
-4. [https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/](https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/)
-5. [http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1804/x86_64/](http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1804/x86_64/)
+3. [https://developer\.nvidia\.com/nvidia\-tensorrt\-6x\-download](https://developer.nvidia.com/nvidia-tensorrt-6x-download)
+4. [https://developer\.download\.nvidia\.com/compute/cuda/repos/ubuntu1804/x86\_64/](https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/)
+5. [http://developer\.download\.nvidia\.com/compute/machine\-learning/repos/ubuntu1804/x86\_64/](http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1804/x86_64/)
 
 
 
-+-----------------------------------------------------------------------------------+
-
-| **[View original post on Medium](https://medium.com/jacky-life/ubuntu-18-04-deploy-gpu-environment-196ebea555d3) - Converted by [ZhgChgLi](https://zhgchg.li)/[ZMediumToMarkdown](https://github.com/ZhgChgLi/ZMediumToMarkdown)** |
-
-+-----------------------------------------------------------------------------------+
+_Converted [Medium Post](https://medium.com/jacky-life/ubuntu-18-04-deploy-gpu-environment-196ebea555d3) by [ZMediumToMarkdown](https://github.com/ZhgChgLi/ZMediumToMarkdown)._

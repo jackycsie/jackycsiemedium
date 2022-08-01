@@ -1,18 +1,22 @@
 ---
 title: LeetCode Palindrome Number
 author: 黃馨平
-date: 2020-09-09T15:30:20.990Z
+date: 2020-09-09T15:30:20.990+0000
+last_modified_at: 2020-09-09T15:31:04.757+0000
 categories: Jackycsie
 tags: [leetcode,python]
+description: 
+image:
+  path: assets/f61d3f6be611/1*2nixKoG8ZDZol-S8VY9sYw.jpeg
 ---
 
-### [LeetCode] Palindrome Number
+### \[LeetCode\] Palindrome Number
 
 
 ![](assets/f61d3f6be611/1*2nixKoG8ZDZol-S8VY9sYw.jpeg)
 
 
-Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.
+Determine whether an integer is a palindrome\. An integer is a palindrome when it reads the same backward as forward\.
 
 **Example 1:**
 ```
@@ -35,7 +39,7 @@ Explanation: Reads 01 from right to left. Therefore it is not a palindrome.
 ```
 ### 解題思路：
 
-首先我們可以知道只要是負的就可以傳 false ，接著判斷字串是基數偶數，如果是偶數直接對半切，拿第一個比對最後一個，依此類推，如果是基數，直接忽略最中間的那個。若是中間任何一個只要不同就直接傳 false 。這樣最佳時間複雜度是 O(1)，最差則是 O(n/2)。
+首先我們可以知道只要是負的就可以傳 false ，接著判斷字串是基數偶數，如果是偶數直接對半切，拿第一個比對最後一個，依此類推，如果是基數，直接忽略最中間的那個。若是中間任何一個只要不同就直接傳 false 。這樣最佳時間複雜度是 O\(1\)，最差則是 O\(n/2\)。
 ```python
 class Solution(object):
     def isPalindrome(self, x):
@@ -56,12 +60,12 @@ class Solution(object):
                 return False
         return True
 ```
-- Runtime: 48 ms, faster than 86.46%
-- Memory Usage: 12.8 MB, less than 43.23%
+- Runtime: 48 ms, faster than 86\.46%
+- Memory Usage: 12\.8 MB, less than 43\.23%
 
 ### 解題思路二：
 
-將字串反轉後，跟原本的數字做比對，但這樣的時間複雜度一定是 O(n)，不是非常聰明的作法。
+將字串反轉後，跟原本的數字做比對，但這樣的時間複雜度一定是 O\(n\)，不是非常聰明的作法。
 ```python
 class Solution(object):
     def isPalindrome(self, x):
@@ -81,13 +85,9 @@ class Solution(object):
         else:
             return False
 ```
-- Runtime: 52 ms, faster than 79.30%
-- Memory Usage: 12.7 MB, less than 80.05%
+- Runtime: 52 ms, faster than 79\.30%
+- Memory Usage: 12\.7 MB, less than 80\.05%
 
 
 
-+-----------------------------------------------------------------------------------+
-
-| **[View original post on Medium](https://medium.com/jacky-life/leetcode-palindrome-number-f61d3f6be611) - Converted by [ZhgChgLi](https://zhgchg.li)/[ZMediumToMarkdown](https://github.com/ZhgChgLi/ZMediumToMarkdown)** |
-
-+-----------------------------------------------------------------------------------+
+_Converted [Medium Post](https://medium.com/jacky-life/leetcode-palindrome-number-f61d3f6be611) by [ZMediumToMarkdown](https://github.com/ZhgChgLi/ZMediumToMarkdown)._

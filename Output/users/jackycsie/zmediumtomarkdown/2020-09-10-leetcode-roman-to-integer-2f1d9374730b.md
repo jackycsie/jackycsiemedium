@@ -1,18 +1,22 @@
 ---
 title: LeetCode Roman to Integer
 author: 黃馨平
-date: 2020-09-10T13:00:56.458Z
+date: 2020-09-10T13:00:56.458+0000
+last_modified_at: 2020-09-10T13:00:56.458+0000
 categories: Jackycsie
 tags: [leetcode,python]
+description: Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
+image:
+  path: assets/2f1d9374730b/1*eYZofjrD0z3j5PTyW0n4BQ.jpeg
 ---
 
-### [LeetCode] Roman to Integer
+### \[LeetCode\] Roman to Integer
 
 
 ![](assets/2f1d9374730b/1*eYZofjrD0z3j5PTyW0n4BQ.jpeg)
 
 
-Roman numerals are represented by seven different symbols: `I` , `V` , `X` , `L` , `C` , `D` and `M` .
+Roman numerals are represented by seven different symbols: `I` , `V` , `X` , `L` , `C` , `D` and `M` \.
 ```
 Symbol       Value
 I             1
@@ -57,7 +61,7 @@ Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
 ```
 #### 解題思路：
 
-個人覺得剛開始覺得這題在程式邏輯上，蠻無趣的，因為難的不在寫 code ，在於尋找 pattern ，但仔細沈澱了一下，發現難道這世界不就是這樣嗎？使用者的消費習慣，做事的邏輯都是透過個人尋找的 pattern，再去做 rule-based 研究出來的，看來我還是太嫩了，輕瞧了這題了，陷入個人的思維陷阱了。
+個人覺得剛開始覺得這題在程式邏輯上，蠻無趣的，因為難的不在寫 code ，在於尋找 pattern ，但仔細沈澱了一下，發現難道這世界不就是這樣嗎？使用者的消費習慣，做事的邏輯都是透過個人尋找的 pattern，再去做 rule\-based 研究出來的，看來我還是太嫩了，輕瞧了這題了，陷入個人的思維陷阱了。
 1. 那這題的思路就是有兩種，從後向前掃描，遇到前面數大於等於後面的最大數的時候，相加；遇到前面數小於後面的最大數的時候，相減。
 2. 從前向後掃描，遇到後面數大於等於前面的最大數的時候，相減；遇到後面數小於前面的最大數的時候，相加。
 
@@ -90,8 +94,8 @@ class Solution(object):
                 count_sum = count_sum + now_step_value
         return count_sum
 ```
-- Runtime: 36 ms, faster than 89.55%
-- Memory Usage: 12.7 MB, less than 45.32%
+- Runtime: 36 ms, faster than 89\.55%
+- Memory Usage: 12\.7 MB, less than 45\.32%
 
 
 右邊算到左邊
@@ -108,16 +112,12 @@ class Solution(object):
         prev = dict[i]
       return res
 ```
-- Runtime: 40 ms, faster than 80.13%
-- Memory Usage: 12.7 MB, less than 47.16%
+- Runtime: 40 ms, faster than 80\.13%
+- Memory Usage: 12\.7 MB, less than 47\.16%
 
 ### 參考：
-- [Roman to Integer [easy] (Python)](https://blog.csdn.net/coder_orz/article/details/51448537)
+- [Roman to Integer \[easy\] \(Python\)](https://blog.csdn.net/coder_orz/article/details/51448537)
 
 
 
-+-----------------------------------------------------------------------------------+
-
-| **[View original post on Medium](https://medium.com/jacky-life/leetcode-roman-to-integer-2f1d9374730b) - Converted by [ZhgChgLi](https://zhgchg.li)/[ZMediumToMarkdown](https://github.com/ZhgChgLi/ZMediumToMarkdown)** |
-
-+-----------------------------------------------------------------------------------+
+_Converted [Medium Post](https://medium.com/jacky-life/leetcode-roman-to-integer-2f1d9374730b) by [ZMediumToMarkdown](https://github.com/ZhgChgLi/ZMediumToMarkdown)._

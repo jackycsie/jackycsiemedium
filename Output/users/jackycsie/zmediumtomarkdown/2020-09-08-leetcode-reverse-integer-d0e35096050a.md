@@ -1,18 +1,22 @@
 ---
 title: LeetCodeReverse Integer
 author: 黃馨平
-date: 2020-09-08T15:31:10.203Z
+date: 2020-09-08T15:31:10.203+0000
+last_modified_at: 2020-09-11T05:40:12.136+0000
 categories: Jackycsie
 tags: [leetcode,python]
+description: Given a 32-bit signed integer, reverse digits of an integer.
+image:
+  path: assets/d0e35096050a/1*ZvBc1JrntD-ZNVZDbezCrQ.jpeg
 ---
 
-### [LeetCode] Reverse Integer
+### \[LeetCode\] Reverse Integer
 
 
 ![](assets/d0e35096050a/1*ZvBc1JrntD-ZNVZDbezCrQ.jpeg)
 
 
-Given a 32-bit signed integer, reverse digits of an integer.
+Given a 32\-bit signed integer, reverse digits of an integer\.
 
 **Example 1:**
 ```
@@ -32,10 +36,10 @@ Input: 120
 ```
 
 **Note:** 
-Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: [−231, 231 − 1]. For the purpose of this problem, assume that your function returns 0 when the reversed integer overflows.
+Assume we are dealing with an environment which could only store integers within the 32\-bit signed integer range: \[−231, 231 − 1\] \. For the purpose of this problem, assume that your function returns 0 when the reversed integer overflows\.
 ### 解題
 
-這題其實蠻愜意的，需要在乎的是最後的尾數 0 與正負數就可以解決此問題，另外要注意的是 32-bit 的小陷阱，如果超過正負 2147483648，就會傳 0 這點需要注意。
+這題其實蠻愜意的，需要在乎的是最後的尾數 0 與正負數就可以解決此問題，另外要注意的是 32\-bit 的小陷阱，如果超過正負 2147483648，就會傳 0 這點需要注意。
 
 那本題的思維是 check 正負，轉 string ，從最後面讀回來，用 string 的方法相加，就可以囉。
 ```python
@@ -58,19 +62,19 @@ class Solution(object):
         return_answer = int(return_answer) * answer
         return return_answer if return_answer < 2147483648 and return_answer >= -2147483648 else 0
 ```
-- Runtime: 28 ms, faster than 37.79%
-- Memory Usage: 12.7 MB, less than 49.07%
+- Runtime: 28 ms, faster than 37\.79%
+- Memory Usage: 12\.7 MB, less than 49\.07%
 
 
-另外如果比較 high-level 的 programer 其實可以使用下面方法，蠻不錯的，我個人也比較 prefer 這種寫法，不管是 code review 或者 memory 上都可以節省多一點的資源跟時間，而且又清晰易懂。
+另外如果比較 high\-level 的 programer 其實可以使用下面方法，蠻不錯的，我個人也比較 prefer 這種寫法，不管是 code review 或者 memory 上都可以節省多一點的資源跟時間，而且又清晰易懂。
 ```python
 class Solution:
     def reverse(self, x):
         rev = int(str(abs(x))[::-1])
         return (-rev if x < 0 else rev) if rev.bit_length() < 32 else 0
 ```
-- Runtime: 24 ms, faster than 60.45%
-- Memory Usage: 12.6 MB, less than 90.82%
+- Runtime: 24 ms, faster than 60\.45%
+- Memory Usage: 12\.6 MB, less than 90\.82%
 
 
 好文推推：
@@ -78,8 +82,4 @@ class Solution:
 
 
 
-+-----------------------------------------------------------------------------------+
-
-| **[View original post on Medium](https://medium.com/jacky-life/leetcode-reverse-integer-d0e35096050a) - Converted by [ZhgChgLi](https://zhgchg.li)/[ZMediumToMarkdown](https://github.com/ZhgChgLi/ZMediumToMarkdown)** |
-
-+-----------------------------------------------------------------------------------+
+_Converted [Medium Post](https://medium.com/jacky-life/leetcode-reverse-integer-d0e35096050a) by [ZMediumToMarkdown](https://github.com/ZhgChgLi/ZMediumToMarkdown)._

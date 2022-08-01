@@ -1,12 +1,16 @@
 ---
 title: AWS — 學習筆記(2) NAT/Container Service
 author: 黃馨平
-date: 2021-10-06T13:56:05.258Z
+date: 2021-10-06T13:56:05.258+0000
+last_modified_at: 2021-10-07T03:16:00.422+0000
 categories: Jackycsie
 tags: [aws]
+description: 
+image:
+  path: assets/e23d78f1ab55/1*lmm0bm9Rx5HsuSNEukOC9Q.jpeg
 ---
 
-### AWS — 學習筆記(2) NAT/Container Service
+### AWS — 學習筆記\(2\) NAT/Container Service
 
 
 ![](assets/e23d78f1ab55/1*lmm0bm9Rx5HsuSNEukOC9Q.jpeg)
@@ -18,7 +22,7 @@ Hi all,
 
 最後此篇 container 是從 [小馬 blog](https://github.com/komavideo/LearnAWS) pull 下來的，因為我目前只想專注 AWS 元件的佈建，等之後需要用到 EKS 或者 ECS 在自己做一下 container，但若是目前還不太會 container 技術的可以玩一下 Podman or Docker 。
 
-下圖是本次的架構圖，承接了 [AWS — 學習筆記(1)](aws-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-1-deploy-env-ec2-ea5e5f56d936) 的內容繼續實作。
+下圖是本次的架構圖，承接了 [AWS — 學習筆記\(1\)](aws-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-1-deploy-env-ec2-ea5e5f56d936) 的內容繼續實作。
 
 
 ![](assets/e23d78f1ab55/1*xpRsUMdp97L5f3-J8S2Dxg.png)
@@ -28,19 +32,19 @@ Hi all,
 1. 建立 AWS NAT
 2. 建立屬於 Private subnet 的 Routing table
 3. 建立 AWS Private subnet 的 Security group
-4. 建立 Private subnet 的 EC2 instance.
+4. 建立 Private subnet 的 EC2 instance\.
 5. 在 Private subnet 中 pull 小馬的 DB container
 6. 在 Public subnet 中 pull 小馬的 Web container，將 Public subnet 的 OS 與 Private subnet 進行溝通。
 
 
 Naming rule：
-- NAT : jackysideproject-web-nat
-- DB Routing Table: jackysideproject-db-rtb
-- DB Securty Group: jackysideproject-db-sg
-- EC2 Private IP: 172.16.20.10/32
-- Private subnet OS: jackysideproject-db1
+- NAT : jackysideproject\-web\-nat
+- DB Routing Table: jackysideproject\-db\-rtb
+- DB Securty Group: jackysideproject\-db\-sg
+- EC2 Private IP: 172\.16\.20\.10/32
+- Private subnet OS: jackysideproject\-db1
 
-### 1. 建立 AWS NAT
+### 1\. 建立 AWS NAT
 
 參考文章： [AWS NAT 有什麼不同？](https://docs.aws.amazon.com/zh_tw/vpc/latest/userguide/vpc-nat-gateway.html)
 
@@ -57,7 +61,7 @@ Naming rule：
 
 ![](assets/e23d78f1ab55/1*B5AUnM7SeNycdVpeBf7Xpg.png)
 
-### 2. 建立屬於 Private subnet 的 Routing table
+### 2\. 建立屬於 Private subnet 的 Routing table
 
 首先我們會先建立一個 routing table，並設定成此 VPC 都可以使用。
 
@@ -65,7 +69,7 @@ Naming rule：
 ![](assets/e23d78f1ab55/1*UJ7_R-A1ATj5Xh91iF0b9g.png)
 
 
-接著建立好路由表以後，我們將所有非 172.16.0.0/16 的網路倒給 NAT 去做轉送，讓網路透過 NAT 對外溝通，這樣 private EC2 才可以做通訊。
+接著建立好路由表以後，我們將所有非 172\.16\.0\.0/16 的網路倒給 NAT 去做轉送，讓網路透過 NAT 對外溝通，這樣 private EC2 才可以做通訊。
 
 
 ![](assets/e23d78f1ab55/1*ooLeqeDgVGugv8MPmmfrow.png)
@@ -76,7 +80,7 @@ Naming rule：
 
 ![](assets/e23d78f1ab55/1*LlhoJKPxtE8Vm3EEgEK7gQ.png)
 
-### 3. 建立 AWS Private subnet 的 Security group
+### 3\. 建立 AWS Private subnet 的 Security group
 
 此步驟我們建立 Prviate subnet 的 Securty group，將 Port 22/3306 allow 進 private subnet 中。
 
@@ -84,20 +88,20 @@ Naming rule：
 ![](assets/e23d78f1ab55/1*mIchaadZhKp_qbsLMYcEmg.png)
 
 
-Allow SSH, 否則沒有人可以連得進去 Private subnet 的 OS. 哈哈
+Allow SSH, 否則沒有人可以連得進去 Private subnet 的 OS\. 哈哈
 
 
 ![](assets/e23d78f1ab55/1*d6DvYIGw85lWRDAfIrC4rg.png)
 
-### 4. 建立 Private subnet 的 EC2 instance.
+### 4\. 建立 Private subnet 的 EC2 instance\.
 
-選擇 private subnet，並且將 auto-assiang public IP disable 掉。
+選擇 private subnet，並且將 auto\-assiang public IP disable 掉。
 
 
 ![](assets/e23d78f1ab55/1*E6W0dyILGYClsBgzlokAqg.png)
 
 
-設定這個 EC2 的 IP 為 172.16.20.10
+設定這個 EC2 的 IP 為 172\.16\.20\.10
 
 
 ![](assets/e23d78f1ab55/1*A5GsXRKcCmqAdalGCMuiRw.png)
@@ -114,9 +118,9 @@ Cool~
 
 ![](assets/e23d78f1ab55/1*mOHeEJTTCod4TIzzLyxxSQ.png)
 
-### 5. Private subnet 中 pull 小馬的 DB container
+### 5\. Private subnet 中 pull 小馬的 DB container
 
-在 pull container 前我們必須 pre-check
+在 pull container 前我們必須 pre\-check
 1. Public IP 連的進 private IP 的 OS 嗎？
 2. 可以確認可以透過 NAT gateway 對外溝通嗎？
 
@@ -160,7 +164,7 @@ mysql> exit;
 
 ![](assets/e23d78f1ab55/1*VS8rcci3MSadEqZNRH_78g.png)
 
-### 6. Pull web container 以及與 Private subnet 的 DB 溝通。
+### 6\. Pull web container 以及與 Private subnet 的 DB 溝通。
 ```
 # Switch 到 Public IP 的 OS 中
 # Pull web container
@@ -191,8 +195,8 @@ $ docker ps
 但這只是個開始，希望這個流程不會變成你們公司或者團隊的 SOP，自己對 SOP不喜歡，因為這樣會讓你缺乏了思考的能力，所以我只寫個能 working 的大方向，細節一定要學習，希望我們都不會被 “體制化” ，加油！一起跳出舒適圈吧！！！
 ### 下集預告
 
-下一篇，會使用打包Web-AMI，去實作如何使用 ELB 打造 Load balance 的 service.
-- Name: jackysideproject-web-ami
+下一篇，會使用打包Web\-AMI，去實作如何使用 ELB 打造 Load balance 的 service\.
+- Name: jackysideproject\-web\-ami
 
 
 
@@ -205,8 +209,4 @@ $ docker ps
 
 
 
-+-----------------------------------------------------------------------------------+
-
-| **[View original post on Medium](https://medium.com/jacky-life/aws-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-2-nat-container-service-e23d78f1ab55) - Converted by [ZhgChgLi](https://zhgchg.li)/[ZMediumToMarkdown](https://github.com/ZhgChgLi/ZMediumToMarkdown)** |
-
-+-----------------------------------------------------------------------------------+
+_Converted [Medium Post](https://medium.com/jacky-life/aws-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-2-nat-container-service-e23d78f1ab55) by [ZMediumToMarkdown](https://github.com/ZhgChgLi/ZMediumToMarkdown)._
