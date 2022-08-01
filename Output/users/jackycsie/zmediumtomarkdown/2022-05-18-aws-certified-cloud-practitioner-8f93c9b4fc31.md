@@ -1,9 +1,13 @@
 ---
 title: AWS Certified Cloud Practitioner
 author: 黃馨平
-date: 2022-05-18T17:06:29.813Z
+date: 2022-05-18T17:06:29.813+0000
+last_modified_at: 2022-05-18T17:09:55.599+0000
 categories: Jackycsie
 tags: [aws,cloud]
+description: 本篇文章紀錄了考 AWS Cloud Practitioner 證照時，需注意的 Tips 以及搜集了可以幫助我們在學習 AWS Service 時可以更快速理解的資源。
+image:
+  path: assets/8f93c9b4fc31/1*f94EG9Ank-dTgOEJVluXCw.png
 ---
 
 ### AWS Certified Cloud Practitioner
@@ -12,10 +16,10 @@ tags: [aws,cloud]
 ![](assets/8f93c9b4fc31/1*f94EG9Ank-dTgOEJVluXCw.png)
 
 
-Hi 大家, 最近考過了 Cloud Practitioner 的證照, 想說趁著記憶猶新紀錄一下當初準備的內容.
+Hi 大家, 最近考過了 Cloud Practitioner 的證照, 想說趁著記憶猶新紀錄一下當初準備的內容\.
 ### 背景
 
-過去是在 IT 行業工作, 主要的領域在於 on-premise 的 infrastructure, 在 cloud 中只有玩一些基礎的 AWS service 經驗約 6 個月上下。
+過去是在 IT 行業工作, 主要的領域在於 on\-premise 的 infrastructure, 在 cloud 中只有玩一些基礎的 AWS service 經驗約 6 個月上下。
 ### Outline
 1. 上課資源
 2. 模擬考測驗
@@ -23,132 +27,130 @@ Hi 大家, 最近考過了 Cloud Practitioner 的證照, 想說趁著記憶猶�
 4. 大大們的參考網站
 5. 心得
 
-### 1. 上課資源
+### 1\. 上課資源
 
-1.1 首先個人主要學習的內容是透過 Udemy 線上課程，講師是這一位 [**Stephane Maarek**](https://www.udemy.com/user/stephane-maarek/) ，當初是透過特價的時候買的花了 NT$ 390 元，這位講師教得非常的清楚而且淺顯易懂，並且有完整的 PDF 可以重點整理，另外他也有錄製這些 service 的 Lab ，可以跟著他做加深學習印象，他也有 Youtube Channel 都有片段課程可以學習。
-
-
-![https://www\.udemy\.com/user/stephane\-maarek/](assets/8f93c9b4fc31/1*yL-D--9ZFQdi0FWp2ZaEig.png "https://www\.udemy\.com/user/stephane\-maarek/")
-
-[https://www.udemy.com/user/stephane-maarek/](https://www.udemy.com/user/stephane-maarek/)
+1\.1 首先個人主要學習的內容是透過 Udemy 線上課程，講師是這一位 [**Stephane Maarek**](https://www.udemy.com/user/stephane-maarek/) ，當初是透過特價的時候買的花了 NT$ 390 元，這位講師教得非常的清楚而且淺顯易懂，並且有完整的 PDF 可以重點整理，另外他也有錄製這些 service 的 Lab ，可以跟著他做加深學習印象，他也有 Youtube Channel 都有片段課程可以學習。
 
 
-![https://www\.youtube\.com/c/StephaneMaarek/featured](assets/8f93c9b4fc31/1*14gIlDuxedqUskFcAQlGcg.png "https://www\.youtube\.com/c/StephaneMaarek/featured")
+![[https://www\.udemy\.com/user/stephane\-maarek/](https://www.udemy.com/user/stephane-maarek/)](assets/8f93c9b4fc31/1*yL-D--9ZFQdi0FWp2ZaEig.png)
 
-[https://www.youtube.com/c/StephaneMaarek/featured](https://www.youtube.com/c/StephaneMaarek/featured)
-
-1.2 官網根據 Certified Cloud Practitioner 出的課程可以學習，另外上完這個課程以及 AWS 提供的考試前 TIPS，就可以拿到 US$50 折價券， 相當不錯，想省一筆的老鐵們可以把握機會，相關資訊有可以問 AWS member, “aws-tw@amazon.com”
+[https://www\.udemy\.com/user/stephane\-maarek/](https://www.udemy.com/user/stephane-maarek/)
 
 
-![https://aws\.amazon\.com/tw/training/learn\-about/cloud\-practitioner/](assets/8f93c9b4fc31/1*W1ID5JmuLCHy-kEOhJVwhQ.png "https://aws\.amazon\.com/tw/training/learn\-about/cloud\-practitioner/")
+![[https://www\.youtube\.com/c/StephaneMaarek/featured](https://www.youtube.com/c/StephaneMaarek/featured)](assets/8f93c9b4fc31/1*14gIlDuxedqUskFcAQlGcg.png)
 
-[https://aws.amazon.com/tw/training/learn-about/cloud-practitioner/](https://aws.amazon.com/tw/training/learn-about/cloud-practitioner/)
+[https://www\.youtube\.com/c/StephaneMaarek/featured](https://www.youtube.com/c/StephaneMaarek/featured)
 
-
-![https://pages\.awscloud\.com/TRAINCERT\-GCR\-tw\_get\_certified\_cp\_20220419\_RegPage\.html?trk=fc1de7d0\-0289\-4a8b\-802d\-18daeab7dd7b&sc\_channel=em](assets/8f93c9b4fc31/1*uaAWMfss8m0-OegZlM2ong.png "https://pages\.awscloud\.com/TRAINCERT\-GCR\-tw\_get\_certified\_cp\_20220419\_RegPage\.html?trk=fc1de7d0\-0289\-4a8b\-802d\-18daeab7dd7b&sc\_channel=em")
-
-[https://pages.awscloud.com/TRAINCERT-GCR-tw_get_certified_cp_20220419_RegPage.html?trk=fc1de7d0-0289-4a8b-802d-18daeab7dd7b&sc_channel=em](https://pages.awscloud.com/TRAINCERT-GCR-tw_get_certified_cp_20220419_RegPage.html?trk=fc1de7d0-0289-4a8b-802d-18daeab7dd7b&sc_channel=em)
-
-1.3 有時候我們並非為了考試而考試，而是真的想去學習一個 Service 的內容這時候就非常推薦 [**Neal Davis**](https://medium.com/@neal-davis?source=user_profile-------------------------------------) 的 Medium 文章，裡面對非常多的 Service 有細節的描述，另外他也有在 Udemy 也有販售課程，可以去試聽看看。
+1\.2 官網根據 Certified Cloud Practitioner 出的課程可以學習，另外上完這個課程以及 AWS 提供的考試前 TIPS，就可以拿到 US$50 折價券， 相當不錯，想省一筆的老鐵們可以把握機會，相關資訊有可以問 AWS member, “aws\-tw@amazon\.com”
 
 
-![https://www\.udemy\.com/course/aws\-certified\-cloud\-practitioner\-training\-course/](assets/8f93c9b4fc31/1*05s_OR9gRQCaweebDYrxdg.png "https://www\.udemy\.com/course/aws\-certified\-cloud\-practitioner\-training\-course/")
+![[https://aws\.amazon\.com/tw/training/learn\-about/cloud\-practitioner/](https://aws.amazon.com/tw/training/learn-about/cloud-practitioner/)](assets/8f93c9b4fc31/1*W1ID5JmuLCHy-kEOhJVwhQ.png)
 
-[https://www.udemy.com/course/aws-certified-cloud-practitioner-training-course/](https://www.udemy.com/course/aws-certified-cloud-practitioner-training-course/)
+[https://aws\.amazon\.com/tw/training/learn\-about/cloud\-practitioner/](https://aws.amazon.com/tw/training/learn-about/cloud-practitioner/)
 
 
-![https://medium\.com/@neal\-davis](assets/8f93c9b4fc31/1*AnxwKAyo_tUm1K14NHzgsg.png "https://medium\.com/@neal\-davis")
+![[https://pages\.awscloud\.com/TRAINCERT\-GCR\-tw\_get\_certified\_cp\_20220419\_RegPage\.html?trk=fc1de7d0\-0289\-4a8b\-802d\-18daeab7dd7b&sc\_channel=em](https://pages.awscloud.com/TRAINCERT-GCR-tw_get_certified_cp_20220419_RegPage.html?trk=fc1de7d0-0289-4a8b-802d-18daeab7dd7b&sc_channel=em)](assets/8f93c9b4fc31/1*uaAWMfss8m0-OegZlM2ong.png)
 
-[https://medium.com/@neal-davis](https://medium.com/@neal-davis)
+[https://pages\.awscloud\.com/TRAINCERT\-GCR\-tw\_get\_certified\_cp\_20220419\_RegPage\.html?trk=fc1de7d0\-0289\-4a8b\-802d\-18daeab7dd7b&sc\_channel=em](https://pages.awscloud.com/TRAINCERT-GCR-tw_get_certified_cp_20220419_RegPage.html?trk=fc1de7d0-0289-4a8b-802d-18daeab7dd7b&sc_channel=em)
 
-1.4 這是我去 Google 搜尋中大家都大推的 Youtube 課程，我自己看了一些以後覺得適合已經對 AWS 有一定的認識以及主要在於想要考證照的人影片，不太適合邊學邊做的人。
+1\.3 有時候我們並非為了考試而考試，而是真的想去學習一個 Service 的內容這時候就非常推薦 [**Neal Davis**](https://medium.com/@neal-davis?source=user_profile-------------------------------------) 的 Medium 文章，裡面對非常多的 Service 有細節的描述，另外他也有在 Udemy 也有販售課程，可以去試聽看看。
+
+
+![[https://www\.udemy\.com/course/aws\-certified\-cloud\-practitioner\-training\-course/](https://www.udemy.com/course/aws-certified-cloud-practitioner-training-course/)](assets/8f93c9b4fc31/1*05s_OR9gRQCaweebDYrxdg.png)
+
+[https://www\.udemy\.com/course/aws\-certified\-cloud\-practitioner\-training\-course/](https://www.udemy.com/course/aws-certified-cloud-practitioner-training-course/)
+
+
+![[https://medium\.com/@neal\-davis](https://medium.com/@neal-davis)](assets/8f93c9b4fc31/1*AnxwKAyo_tUm1K14NHzgsg.png)
+
+[https://medium\.com/@neal\-davis](https://medium.com/@neal-davis)
+
+1\.4 這是我去 Google 搜尋中大家都大推的 Youtube 課程，我自己看了一些以後覺得適合已經對 AWS 有一定的認識以及主要在於想要考證照的人影片，不太適合邊學邊做的人。
 
 
 [![AWS Certified Cloud Practitioner Training 2020 - Full Course](assets/8f93c9b4fc31/fab5_hqdefault.jpg "AWS Certified Cloud Practitioner Training 2020 - Full Course")](https://www.youtube.com/watch?v=3hLmDS179YE)
 
 
-1.5 實體書籍，這方法也是我最早學習 AWS 的方法，當初我是先買這本書將它看完才來玩 lab 的，我個人覺得非常不錯他是以平常的實體案例套入進去 AWS 的 Service 中，加速我們理解每個 Service 之間對應的關係，若是平常喜歡唸實體書的朋友們歡迎也可以買這本書看看。
+1\.5 實體書籍，這方法也是我最早學習 AWS 的方法，當初我是先買這本書將它看完才來玩 lab 的，我個人覺得非常不錯他是以平常的實體案例套入進去 AWS 的 Service 中，加速我們理解每個 Service 之間對應的關係，若是平常喜歡唸實體書的朋友們歡迎也可以買這本書看看。
 
 
-[![大話AWS雲端架構：雲端應用架構圖解輕鬆學\(第二版\)
-第一單元 經典雲應用架構 01 經典雲應用架構總覽 1\.1 本地怎麼做，雲端就怎麼做 1\.2 人類世界與資訊世界是相似的，經典生活化商業案例 1\.3 本地經典應用架構 1\.4 AWS經典應用架構 1\.5 雲育鏈的雲服務考題練習機器人 02…www\.books\.com\.tw](https://im2.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/089/73/0010897351.jpg&v=60e82536k&w=1146&h=600 "大話AWS雲端架構：雲端應用架構圖解輕鬆學\(第二版\)
-第一單元 經典雲應用架構 01 經典雲應用架構總覽 1\.1 本地怎麼做，雲端就怎麼做 1\.2 人類世界與資訊世界是相似的，經典生活化商業案例 1\.3 本地經典應用架構 1\.4 AWS經典應用架構 1\.5 雲育鏈的雲服務考題練習機器人 02…www\.books\.com\.tw")](https://www.books.com.tw/products/0010897351?sloc=main)
+[![](https://im2.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/089/73/0010897351.jpg&v=60e82536k&w=1146&h=600)](https://www.books.com.tw/products/0010897351?sloc=main)
 
 
-1.6 說完了前面幾種有系統地學習方法後，推薦最後一種方法當有些課程介紹 Service 不夠詳細時，我自己會做的方法去加深印象，首先就是去 AWS 官網找他們對這個 Service 的介紹，中英文的解釋都看一遍，接著就是去 AWS Service 實作一下，去了解他的整個流程，相信這個方法會對整個 Service 更加印象深刻，推薦給大家。
-### 2. 模擬考測驗
+1\.6 說完了前面幾種有系統地學習方法後，推薦最後一種方法當有些課程介紹 Service 不夠詳細時，我自己會做的方法去加深印象，首先就是去 AWS 官網找他們對這個 Service 的介紹，中英文的解釋都看一遍，接著就是去 AWS Service 實作一下，去了解他的整個流程，相信這個方法會對整個 Service 更加印象深刻，推薦給大家。
+### 2\. 模擬考測驗
 
 模擬測驗個人認為是重中之重，之前在做模擬測驗前我認為關於基礎的 Service 都已經有足夠的瞭解了沒想到，模擬考出來後只對了一半，這時候才發現原來準備的方現跟內容不夠，所以下面會推薦幾種我自己有測驗的方法。
 
-2.1 上網購買 Udemy 的線上課程個人非常推薦購買此課程，當初特價花了 NT$ 399 好處是可以模擬實際的考試環境，可以降低考試時的緊張感，並且每一題題目都有詳細解答可以學習，他可以考無限次數，總共有 6 份試卷，並且可以記錄每一次考試錯誤的內容細項。
+2\.1 上網購買 Udemy 的線上課程個人非常推薦購買此課程，當初特價花了 NT$ 399 好處是可以模擬實際的考試環境，可以降低考試時的緊張感，並且每一題題目都有詳細解答可以學習，他可以考無限次數，總共有 6 份試卷，並且可以記錄每一次考試錯誤的內容細項。
 
 
-![https://www\.udemy\.com/course/practice\-exams\-aws\-certified\-cloud\-practitioner/](assets/8f93c9b4fc31/1*ibN7bXJxq_P8nmvpmKkXSA.png "https://www\.udemy\.com/course/practice\-exams\-aws\-certified\-cloud\-practitioner/")
+![[https://www\.udemy\.com/course/practice\-exams\-aws\-certified\-cloud\-practitioner/](https://www.udemy.com/course/practice-exams-aws-certified-cloud-practitioner/)](assets/8f93c9b4fc31/1*ibN7bXJxq_P8nmvpmKkXSA.png)
 
-[https://www.udemy.com/course/practice-exams-aws-certified-cloud-practitioner/](https://www.udemy.com/course/practice-exams-aws-certified-cloud-practitioner/)
+[https://www\.udemy\.com/course/practice\-exams\-aws\-certified\-cloud\-practitioner/](https://www.udemy.com/course/practice-exams-aws-certified-cloud-practitioner/)
 
-2.2 免費的線上考試題目，題目非常的多樣性，好幾百題，我到考試前都還是看不完，但有個小缺點就是他的答案不一定是完全正確的，好處是每一題都會有許多的討論思考。
-
-
-![https://www\.examtopics\.com/exams/amazon/aws\-certified\-cloud\-practitioner/](assets/8f93c9b4fc31/1*Rnn9v9iSYUwOfVSgIqdfGA.png "https://www\.examtopics\.com/exams/amazon/aws\-certified\-cloud\-practitioner/")
-
-[https://www.examtopics.com/exams/amazon/aws-certified-cloud-practitioner/](https://www.examtopics.com/exams/amazon/aws-certified-cloud-practitioner/)
-
-2.3 官網有提供 10 題題目，讓你熟悉一下考試的題型，也可以參考看看，這幾題算是非常基礎，若是朋友們不太會的話，可能要再加油！
+2\.2 免費的線上考試題目，題目非常的多樣性，好幾百題，我到考試前都還是看不完，但有個小缺點就是他的答案不一定是完全正確的，好處是每一題都會有許多的討論思考。
 
 
-![https://d1\.awsstatic\.com/training\-and\-certification/docs\-cloud\-practitioner/AWS\-Certified\-Cloud\-Practitioner\_Sample\-Questions\.pdf](assets/8f93c9b4fc31/1*ctdpjpTKHfCzT1DsAy8Vlg.png "https://d1\.awsstatic\.com/training\-and\-certification/docs\-cloud\-practitioner/AWS\-Certified\-Cloud\-Practitioner\_Sample\-Questions\.pdf")
+![[https://www\.examtopics\.com/exams/amazon/aws\-certified\-cloud\-practitioner/](https://www.examtopics.com/exams/amazon/aws-certified-cloud-practitioner/)](assets/8f93c9b4fc31/1*Rnn9v9iSYUwOfVSgIqdfGA.png)
 
-[https://d1.awsstatic.com/training-and-certification/docs-cloud-practitioner/AWS-Certified-Cloud-Practitioner_Sample-Questions.pdf](https://d1.awsstatic.com/training-and-certification/docs-cloud-practitioner/AWS-Certified-Cloud-Practitioner_Sample-Questions.pdf)
-### 3. 考試 Tips
+[https://www\.examtopics\.com/exams/amazon/aws\-certified\-cloud\-practitioner/](https://www.examtopics.com/exams/amazon/aws-certified-cloud-practitioner/)
+
+2\.3 官網有提供 10 題題目，讓你熟悉一下考試的題型，也可以參考看看，這幾題算是非常基礎，若是朋友們不太會的話，可能要再加油！
+
+
+![[https://d1\.awsstatic\.com/training\-and\-certification/docs\-cloud\-practitioner/AWS\-Certified\-Cloud\-Practitioner\_Sample\-Questions\.pdf](https://d1.awsstatic.com/training-and-certification/docs-cloud-practitioner/AWS-Certified-Cloud-Practitioner_Sample-Questions.pdf)](assets/8f93c9b4fc31/1*ctdpjpTKHfCzT1DsAy8Vlg.png)
+
+[https://d1\.awsstatic\.com/training\-and\-certification/docs\-cloud\-practitioner/AWS\-Certified\-Cloud\-Practitioner\_Sample\-Questions\.pdf](https://d1.awsstatic.com/training-and-certification/docs-cloud-practitioner/AWS-Certified-Cloud-Practitioner_Sample-Questions.pdf)
+### 3\. 考試 Tips
 
 在這個章節主要會跟大家分享兩個考試 Tips, 第一個是分享如何增加 30 分鐘的考試時間，第二個是我自己考試前的重點筆記。
 
-3.1 在這個 Part 我們必須選擇英文考試，才能有考試增加 30 分鐘，那下圖就來介紹吧！
+3\.1 在這個 Part 我們必須選擇英文考試，才能有考試增加 30 分鐘，那下圖就來介紹吧！
 
-3.1.1 首先先登入 AWS 的考試認證網站。
-
-
-![https://www\.aws\.training/Certification](assets/8f93c9b4fc31/1*uakAPtrCCSv-JBJSGGdP4w.png "https://www\.aws\.training/Certification")
-
-[https://www.aws.training/Certification](https://www.aws.training/Certification)
-
-3.1.2 點選 Request Exam Accommodations
+3\.1\.1 首先先登入 AWS 的考試認證網站。
 
 
-![https://aws\.amazon\.com/tw/certification/policies/before\-testing/](assets/8f93c9b4fc31/1*djQGQUeUPu6FXmeqQFKhJw.png "https://aws\.amazon\.com/tw/certification/policies/before\-testing/")
+![[https://www\.aws\.training/Certification](https://www.aws.training/Certification)](assets/8f93c9b4fc31/1*uakAPtrCCSv-JBJSGGdP4w.png)
 
-[https://aws.amazon.com/tw/certification/policies/before-testing/](https://aws.amazon.com/tw/certification/policies/before-testing/)
+[https://www\.aws\.training/Certification](https://www.aws.training/Certification)
 
-3.1.3 點選 Request Accommodations，在這裡我已經有出現 ESL +30 Minutes，可以先忽略，先 Follow 下面步驟。
+3\.1\.2 點選 Request Exam Accommodations
+
+
+![[https://aws\.amazon\.com/tw/certification/policies/before\-testing/](https://aws.amazon.com/tw/certification/policies/before-testing/)](assets/8f93c9b4fc31/1*djQGQUeUPu6FXmeqQFKhJw.png)
+
+[https://aws\.amazon\.com/tw/certification/policies/before\-testing/](https://aws.amazon.com/tw/certification/policies/before-testing/)
+
+3\.1\.3 點選 Request Accommodations，在這裡我已經有出現 ESL \+30 Minutes，可以先忽略，先 Follow 下面步驟。
 
 
 ![](assets/8f93c9b4fc31/1*6dBCDje4M6CcT-KG6_WA_g.png)
 
 
-3.1.4 在紅匡中選擇 ESL + 30 MINUTES
+3\.1\.4 在紅匡中選擇 ESL \+ 30 MINUTES
 
 
 ![](assets/8f93c9b4fc31/1*moAvDDF2NorWfgHFGWRgrg.png)
 
 
-3.1.5 回到上一個頁面就會出現 Approved 的狀態顯示了，這樣就代表成功了，之後的所以考試只要選擇英文考試，並且你是非英語系母語國家的，考試時間就會自動增加 30 分鐘，算是給自己多一點思考的時間。
+3\.1\.5 回到上一個頁面就會出現 Approved 的狀態顯示了，這樣就代表成功了，之後的所以考試只要選擇英文考試，並且你是非英語系母語國家的，考試時間就會自動增加 30 分鐘，算是給自己多一點思考的時間。
 
 
 ![](assets/8f93c9b4fc31/1*KX4ZTUu40e7pIrBTJvYuYA.png)
 
 
-3.2 這個章節我會附上當初考試的一些重點整理思考，但因為本身也是菜鳥，為了怕說錯內容，文中有哪裡沒寫對的，再麻煩通知一下了，謝謝。
+3\.2 這個章節我會附上當初考試的一些重點整理思考，但因為本身也是菜鳥，為了怕說錯內容，文中有哪裡沒寫對的，再麻煩通知一下了，謝謝。
 
-AWS 中有哪些 Service 是屬於 Global Services.
-- Identity and Access Management (IAM)
-- Route 53 (DNS service)
-- CloudFront (Content Delivery Network)
-- WAF (Web Application Firewall)
+AWS 中有哪些 Service 是屬於 Global Services\.
+- Identity and Access Management \(IAM\)
+- Route 53 \(DNS service\)
+- CloudFront \(Content Delivery Network\)
+- WAF \(Web Application Firewall\)
 
 
 Shared Responsibility Model
-- 當考時題目出 “in” 的時候是問 User 的 Responsibility， “of ” 的時候是出 AWS 的 Responsibility.
+- 當考時題目出 “in” 的時候是問 User 的 Responsibility， “of ” 的時候是出 AWS 的 Responsibility\.
 - 以及哪些東西是共同需要負責的？
 
 
@@ -179,14 +181,14 @@ EC2 Image Builder 與 AMI 對應的關係是什麼？
 - EC2 Image Builder 可以定期定時 Build 出 AMI
 
 
-ELB 與 ASG 都是可以使用 Multi-AZ
-- ELB 有三種 Type, Application LB (Layer — 7), Network LB(Layer-L4)
+ELB 與 ASG 都是可以使用 Multi\-AZ
+- ELB 有三種 Type, Application LB \(Layer — 7\), Network LB\(Layer\-L4\)
 - ASG Scale EC2 instances on your system, replace unhealthy
 
 
-S3 個系列的重點整理，主要可以去官網找細節。 [https://aws.amazon.com/tw/s3/pricing/](https://aws.amazon.com/tw/s3/pricing/)
+S3 個系列的重點整理，主要可以去官網找細節。 [https://aws\.amazon\.com/tw/s3/pricing/](https://aws.amazon.com/tw/s3/pricing/)
 - One Zone IA：當有資料需要備份到某個單點 AZ 時，節省花費
-- 不確定自己的資料會多久才儲存的，並確保可以有 High Availability，可以選擇 Intelligent- Tiering
+- 不確定自己的資料會多久才儲存的，並確保可以有 High Availability，可以選擇 Intelligent\- Tiering
 - 有些資料確定短時間不會讀取，想要有更省 Cost 的儲存方式可以選擇 Glacier 類型。
 - Glacier 也分三種類型，Retrieval Time 與 花費的差別，分別是 Instant Retrieval, Flexible Retrieval, Deep Archive, 若需要立馬恢復就選擇第一個， 5m ~ 12hr 選擇 Flexible, 恢復速度最慢的是 Deep 需要約 12~48 小時。
 
@@ -224,10 +226,10 @@ Aurora 是 AWS for PostgreSQL 與 MySQL performance tuning 的 DB;
 
 DocumentDB 是 AWS for NoSQL performance tuning 的 DB;
 
-ElastiCache for memory 加速運算的 DB 就像是 Redis.
+ElastiCache for memory 加速運算的 DB 就像是 Redis\.
 
 其他常考的 DB 內容:
-- Key/Value Database: DynamoDB (serverless)
+- Key/Value Database: DynamoDB \(serverless\)
 - Warehouse — OLAP: Redshift
 - AmazonQLDB: For 金融使用
 - Database Migration: DMS
@@ -235,9 +237,9 @@ ElastiCache for memory 加速運算的 DB 就像是 Redis.
 
 
 Container 系列：
-- Elastic Container Service(ECS) for Container 使用，當有 user 想要使用 Container 技術並且有需要在自己的管理的 server 上使用時會選擇的服務。
-- Fargate(Serverless): User 只想 Launch Container 在 AWS 上，不想管底層時，所選擇的服務。
-- Elastic Container Registry(ECR): 可以想像成地端的 Harbor。
+- Elastic Container Service\(ECS\) for Container 使用，當有 user 想要使用 Container 技術並且有需要在自己的管理的 server 上使用時會選擇的服務。
+- Fargate\(Serverless\): User 只想 Launch Container 在 AWS 上，不想管底層時，所選擇的服務。
+- Elastic Container Registry\(ECR\): 可以想像成地端的 Harbor。
 
 
 AWS 上常使用的 Serverless 產品有
@@ -264,7 +266,7 @@ CodeArtifact
 - 公司軟體的中心
 
 
-Systems Manager (SSM)
+Systems Manager \(SSM\)
 - 可以不需要開 Port 就讓 Mangement Console 登入的方法。
 
 
@@ -282,12 +284,12 @@ Route 53 有 4 種 Mode
 防止 DDOS 的 3 種 Service
 - Shield
 - WAF
-- CloudFront(CDN)
+- CloudFront\(CDN\)
 
 
 持續更新中…
 
-3.3 當天考試注意事項
+3\.3 當天考試注意事項
 
 因為那時候我考試太抖，所以連從哪裡可以連線到 VUE 都不知道，這裡直接幫大家截圖了，就不用擔心了，從 Mange Person VUE Exams 點進去就可以拿到 key 碼然後就可以網路連線考試囉。
 
@@ -296,16 +298,14 @@ Route 53 有 4 種 Mode
 
 
 另外系統會手機發送簡訊，做一些人臉識別與桌子與附近還近驗證的照片，我自己蠻推先下載 Person VUE 這樣可以確保當下是 Stable 的，個人運氣蠻差的光驗證花了 40 分鐘。
-### 4. 大大們的參考網站
+### 4\. 大大們的參考網站
 
 非常感謝各位大神們的文章，才可以這麼順利的考過考試，也從當中學到了不少知識。
 
 推推這篇文章，好險有看到文章有提醒要使用英文認證，我才有準備護照，提醒大家一定要考線上考試的話一定要用外國人有國際認證的喔，那時候我有 mail 給 AWS support ，他說可以用國民身分證，但實際考試其實不行 ＱＱ，印度考官會請你重新拿一份有含英文名字的身份做驗證
 
 
-[![【考試篇】AWS 證照線上考試報名 — 圖文詳細教學
-最近疫情嚴重，不久前考過了 AWS SAA\-C02，發現網路上線上考試的中文教學特別少，決定撰寫一篇文章來回饋 AWS 社群！medium\.com](https://miro.medium.com/max/1200/0*utrwriZQEHx9_oGP.jpg "【考試篇】AWS 證照線上考試報名 — 圖文詳細教學
-最近疫情嚴重，不久前考過了 AWS SAA\-C02，發現網路上線上考試的中文教學特別少，決定撰寫一篇文章來回饋 AWS 社群！medium\.com")](https://medium.com/cloud-guru-%E7%9A%84%E5%BE%81%E9%80%94/%E8%80%83%E8%A9%A6%E7%AF%87-aws-%E8%AD%89%E7%85%A7%E7%B7%9A%E4%B8%8A%E8%80%83%E8%A9%A6%E5%A0%B1%E5%90%8D-%E5%9C%96%E6%96%87%E8%A9%B3%E7%B4%B0%E6%95%99%E5%AD%B8-e48ecd861328)
+[![](https://miro.medium.com/max/1200/0*utrwriZQEHx9_oGP.jpg)](https://medium.com/cloud-guru-%E7%9A%84%E5%BE%81%E9%80%94/%E8%80%83%E8%A9%A6%E7%AF%87-aws-%E8%AD%89%E7%85%A7%E7%B7%9A%E4%B8%8A%E8%80%83%E8%A9%A6%E5%A0%B1%E5%90%8D-%E5%9C%96%E6%96%87%E8%A9%B3%E7%B4%B0%E6%95%99%E5%AD%B8-e48ecd861328)
 
 
 下面這邊文章也是位大大寫的，裡面也記錄了許多考證照時需要用到的知識，相當值得一看。
